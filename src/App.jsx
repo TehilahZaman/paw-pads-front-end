@@ -6,6 +6,7 @@ import SignUpForm from './components/SignUpForm/SignUpForm';
 import SignInForm from './components/SignInForm/SignInForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Landing from './components/Landing/Landing';
+import BookingForm  from './components/BookingForm/BookingForm';
 
 import { UserContext } from './contexts/UserContext';
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/' element={user ? <Dashboard /> : <Landing /> } />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
+        <Route path='/users/book' element={<BookingForm />} />
       </Routes> 
     </>
   );
