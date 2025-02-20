@@ -6,6 +6,7 @@ import SignUpForm from './components/SignUpForm/SignUpForm';
 import SignInForm from './components/SignInForm/SignInForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Landing from './components/Landing/Landing';
+import BookingForm  from './components/BookingForm/BookingForm';
 import RentalList from './components/RentalList/RentalList';
 import RentalDetail from './components/RentalDetail/RentalDetail';
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/' element={user ? <Dashboard /> : <Landing /> } />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
+        <Route path='/users/book' element={<BookingForm />} />
         <Route path='/rentals' element={<RentalList rentals={rentals} />}/>
       </Routes> 
     </>
