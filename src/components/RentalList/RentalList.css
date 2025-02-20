@@ -1,0 +1,8 @@
+.rental-list {
+    background-color: var(--main-bg-color);
+    color: var(--black);
+}
+
+.rental-list ul {
+    list-style: square;
+}
