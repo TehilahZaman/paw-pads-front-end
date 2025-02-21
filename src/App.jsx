@@ -1,4 +1,5 @@
 // src/App.jsx
+
 import { useContext, useState } from 'react';
 import { Routes, Route } from 'react-router'
 import NavBar from './components/NavBar/NavBar';
@@ -10,7 +11,9 @@ import BookingForm  from './components/BookingForm/BookingForm';
 import RentalList from './components/RentalList/RentalList';
 import RentalDetail from './components/RentalDetail/RentalDetail';
 
-import { UserContext } from './contexts/UserContext';
+import ReviewForm from "./components/ReviewForm/ReviewForm";
+
+import { UserContext } from "./contexts/UserContext";
 const App = () => {
   
   const [rentals, setRentals] = useState([]);
@@ -34,4 +37,3 @@ const App = () => {
 export default App;
 
 // This is Zak's comment
-
