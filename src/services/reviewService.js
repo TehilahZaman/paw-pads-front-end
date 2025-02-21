@@ -27,4 +27,31 @@ const createReview = async (rentalId, reviewFormData) => {
   }
 };
 
-export { createReview };
+// update route ...
+const updateReview = async (rentalId, reviewId, reviewFormData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${rentalId}/reviews/${reviewId}}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviewFormData),
+    });
+
+    const data = res.json();
+
+    if (data.err) {
+      throw new Error(data.err);
+    }
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    throw new Error(err);
+  }
+};
+
+// delete route ...
+
+export { createReview, updateReview };

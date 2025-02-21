@@ -34,15 +34,25 @@ const NavBar = () => {
               Sign Out
             </Link>
           </li>
+          <li>
+            <Link to="/users/book">Book</Link>
+          </li>
+          <li>
+            <Link to="/rentals">Rental List</Link>
+          </li>
         </ul>
       ) : (
         <ul>
           {/* Another new link */}
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/sign-in'>Sign In</Link></li>
-          <li><Link to='/sign-up'>Sign Up</Link></li>
-          <li><Link to='/users/book'>Book</Link></li>
-          <li><Link to='/rentals'>Rental List</Link></li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/sign-in">Sign In</Link>
+          </li>
+          <li>
+            <Link to="/sign-up">Sign Up</Link>
+          </li>
         </ul>
       )}
     </nav>

@@ -2,14 +2,17 @@
 
 // <ReviewForm handleAddReview={handleAddReview}/>
 
-import * as reviewService from "../../services/reviewService";
-
 import { useState } from "react";
+import { useParams, useNavigate } from "react-router";
+import * as reviewService from "../../services/reviewService";
 
 const initialState = { name: "", text: "" };
 
 export default function ReviewForm(props) {
   const [formData, setFormData] = useState(initialState);
+
+  const { rentalId, reviewId } = useParams();
+
   const [rental, setRental] = useState({
     name: "catnip hotel",
     location: "pico",
@@ -19,8 +22,10 @@ export default function ReviewForm(props) {
     reviews: [],
   });
 
+  // =============================
   // booking id has to come from the details page, passed as prop
   //need to add rentalID!!
+  // wil lthis run if i leave it here or does this functi0on need to be in details page? 
   const handleAddReview = async (reviewFormData) => {
     const newReview = await reviewService.createReview(
       rental._id,
@@ -28,8 +33,8 @@ export default function ReviewForm(props) {
     );
     setRental({ ...rental, reviews: [...rental.reviews, newReview] });
     console.log(newReview, "new review");
-    console.log(rental);
   };
+  // ============================
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,8 +42,14 @@ export default function ReviewForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // props.
-    handleAddReview(formData);
+    // if reviewId exists in params (url) then update review will run
+    // else add review will run
+    if (rentalId && reviewId) {
+      reviewService.updateReview(rental._id, reviewId, formData);
+    } else {
+      // props.
+      handleAddReview(formData);
+    }
     setFormData(initialState);
   }
 

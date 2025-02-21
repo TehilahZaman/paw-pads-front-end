@@ -1,4 +1,5 @@
-
+import ReviewForm from "../ReviewForm/ReviewForm.jsx"
+import { useParams } from "react-router";
 
 export default function RentalDetail(props){
     if(props.selectedRental === null){
@@ -19,6 +20,7 @@ return (
         <br />
         <span>Reviews: {props.selectedRental.review}</span>
         <br />
+        <ReviewForm />
     </section>
 )
 }
