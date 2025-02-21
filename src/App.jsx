@@ -1,17 +1,16 @@
 // src/App.jsx
 
-import { useContext, useState } from 'react';
-import { Routes, Route } from 'react-router'
-import NavBar from './components/NavBar/NavBar';
-import SignUpForm from './components/SignUpForm/SignUpForm';
-import SignInForm from './components/SignInForm/SignInForm';
-import Dashboard from './components/Dashboard/Dashboard';
-import Landing from './components/Landing/Landing';
-import BookingForm  from './components/BookingForm/BookingForm';
-import RentalDetails from './components/RentalDetails/RentalDetails';
-import RentalList from './components/RentalList/RentalList';
-
-import ReviewForm from "./components/ReviewForm/ReviewForm";
+import { useContext, useState, useEffect } from "react";
+import { Routes, Route } from "react-router";
+import NavBar from "./components/NavBar/NavBar";
+import SignUpForm from "./components/SignUpForm/SignUpForm";
+import SignInForm from "./components/SignInForm/SignInForm";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Landing from "./components/Landing/Landing";
+import BookingForm from "./components/BookingForm/BookingForm";
+import RentalDetails from "./components/RentalDetails/RentalDetails";
+import RentalList from "./components/RentalList/RentalList";
+import * as rentalService from "./services/rentalService.js";
 
 import { UserContext } from "./contexts/UserContext";
 
@@ -35,11 +34,17 @@ const testRentals = [
 ]
 
 const App = () => {
- 
-  const { user } = useContext(UserContext);
-
   const [rentals, setRentals] = useState([]);
 
+  useEffect(() => {
+    async function fetchRentals() {
+      const data = await rentalService.index();
+      setRentals(data);
+    }
+    fetchRentals();
+  }, []);
+
+  const { user } = useContext(UserContext);
 
   return (
     <>
