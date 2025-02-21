@@ -1,64 +1,77 @@
-import { useParams } from "react-router"
-import { useState, useEffect } from 'react';
-import * as rentalService from '../../services/rentalService';
-
+import { useParams } from "react-router";
+import { useState, useEffect } from "react";
+import * as rentalService from "../../services/rentalService";
+import * as reviewService from "../../services/reviewService";
+import ReviewForm from "../ReviewForm/ReviewForm.jsx";
 
 const RentalDetails = () => {
+  const { rentalId } = useParams();
+  console.log("rentalId", rentalId);
 
-    
-    const { rentalId } = useParams();
-    console.log('rentalId', rentalId);
+  const [rental, setRental] = useState(null);
 
-    const [rental, setRental] = useState(null);
+  useEffect(() => {
+    console.log("running");
+    const fetchRental = async () => {
+      const rentalData = await rentalService.show(rentalId);
+      console.log(rentalData, "<---- data");
+      setRental(rentalData);
+    };
+    fetchRental();
+  }, [rentalId]);
 
-    useEffect(() => {
-        const fetchRental = async () => {
-            const rentalData = await rentalService.show(rentalId);
-            setRental(rentalData);
-        };
-        fetchRental();
-    }, [rentalId]);
+  // booking id has to come from the details page, passed as prop
+  //need to add rentalID!!
+  // wil lthis run if i leave it here or does this functi0on need to be in details page?
+  const handleAddReview = async (reviewFormData, rentalId) => {
+    const newReview = await reviewService.createReview(
+      rentalId,
+      reviewFormData
+    );
+    setRental({ ...rental, reviews: [...rental.reviews, newReview] });
+    console.log(newReview, "new review");
+  };
 
-    console.log('rental date:', rental)
-
-    return (
+  console.log("rental date:", rental);
+  if (!rental) return;
+  return (
     <main>
-        <section>
-            <header>
-                <p></p>
-                <h1>{rental.name}</h1>
-                <p>
-                {`${rental.author.username} posted on
-                ${new Date(rental.createdAt).toLocaleDateString()}`}
-                </p>
-            </header>
-            <p>{rental.photo}</p>
-            <p>{rental.location}</p>
-            <p>{rental.typeOfRental}</p>
-            <p>{rental.padOwner}</p>
-        </section>
-        <section>
-            <h2>Reviews:</h2>
+      <section>
+        <header>
+          <p></p>
+          <h1>{rental.name}</h1>
+        </header>
+        <p>{rental.photo}</p>
+        <p>{rental.location}</p>
+        <p>{rental.typeOfRental}</p>
+        <p>
+          {rental.padOwner}
+          ------- we need to change this !
+        </p>
+      </section>
+      <section>
+        <h2>Reviews:</h2>
 
-            {!rental.reviews.length && <p>There are no reviews.</p>}
+        {!rental.reviews.length && <p>There are no reviews.</p>}
 
-            {rental.reviews.map((review) => (
-                <article key={review._id}>
-                    <head>
-                        <p>
-                            {`${review.author.usernam} post on
-                            ${new Date(review.createdAt).toLocaleDateString()}`}
-                        </p>
-                    </head>
-                    <p>{review.text}</p>
-                </article>
-            ))}
-        </section>
+        {rental.reviews.map((review) => (
+          <article key={review._id}>
+            <p>
+              {`${review.userName} post on
+                             ${new Date(
+                               review.createdAt
+                             ).toLocaleDateString()}`}
+            </p>
+            <p>{review.text}</p>
+          </article>
+        ))}
+        <ReviewForm handleAddReview={handleAddReview} />
+      </section>
     </main>
-    )
+  );
 };
 
-export default RentalDetails
+export default RentalDetails;
 
 // export default function RentalDetail(props){
 //     if(props.selectedRental === null){
@@ -68,7 +81,6 @@ export default RentalDetails
 //             </section>
 //         )
 //     }
-
 
 // return (
 //     <section>
