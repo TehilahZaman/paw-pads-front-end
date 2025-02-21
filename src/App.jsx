@@ -1,15 +1,17 @@
 // src/App.jsx
 
-import { useContext, useState } from "react";
-import { Routes, Route } from "react-router";
-import NavBar from "./components/NavBar/NavBar";
-import SignUpForm from "./components/SignUpForm/SignUpForm";
-import SignInForm from "./components/SignInForm/SignInForm";
-import Dashboard from "./components/Dashboard/Dashboard";
-import Landing from "./components/Landing/Landing";
-import BookingForm from "./components/BookingForm/BookingForm";
-import RentalList from "./components/RentalList/RentalList";
-import RentalDetail from "./components/RentalDetail/RentalDetail";
+import { useContext, useState } from 'react';
+import { Routes, Route } from 'react-router'
+import NavBar from './components/NavBar/NavBar';
+import SignUpForm from './components/SignUpForm/SignUpForm';
+import SignInForm from './components/SignInForm/SignInForm';
+import Dashboard from './components/Dashboard/Dashboard';
+import Landing from './components/Landing/Landing';
+import BookingForm  from './components/BookingForm/BookingForm';
+import RentalDetails from './components/RentalDetails/RentalDetails';
+import RentalList from './components/RentalList/RentalList';
+
+
 
 import ReviewForm from "./components/ReviewForm/ReviewForm";
 
