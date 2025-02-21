@@ -28,7 +28,8 @@ const RentalDetails = () => {
                 <p></p>
                 <h1>{rental.name}</h1>
                 <p>
-
+                {`${rental.author.username} posted on
+                ${new Date(rental.createdAt).toLocaleDateString()}`}
                 </p>
             </header>
             <p>{rental.photo}</p>
@@ -38,7 +39,10 @@ const RentalDetails = () => {
         </section>
         <section>
             <h2>Reviews:</h2>
-            {!rental.reviews.map((review) => (
+
+            {!rental.reviews.length && <p>There are no reviews.</p>}
+
+            {rental.reviews.map((review) => (
                 <article key={review._id}>
                     <head>
                         <p>
