@@ -11,11 +11,29 @@ import BookingForm  from './components/BookingForm/BookingForm';
 import RentalDetails from './components/RentalDetails/RentalDetails';
 import RentalList from './components/RentalList/RentalList';
 
-
-
 import ReviewForm from "./components/ReviewForm/ReviewForm";
 
 import { UserContext } from "./contexts/UserContext";
+
+const testRentals = [
+  {
+    name: 'catnip hotel',
+    location: 'pico',
+    typeOfRental: 'hotel',
+    padOwner: '67aba47feb6008fdea4f04d3',
+    _id: '67b8a85f63b46892ce9c7f5b',
+    reviews: [],
+  },
+  {
+    name: 'Shack Hack',
+    location: 'pico',
+    typeOfRental: 'hotel',
+    padOwner: '67aba47feb6008fdea4f04d3',
+    _id: '67aba9c6e343e8985ea26fa8',
+    reviews: [],
+  },
+]
+
 const App = () => {
  
   const { user } = useContext(UserContext);
@@ -32,6 +50,7 @@ const App = () => {
         <Route path='/sign-in' element={<SignInForm />} />
         <Route path='/users/book' element={<BookingForm />} />
         <Route path='/rentals' element={<RentalList rentals={rentals} />} />
+        <Route path='/rentals/:rentalId' element={<RentalDetails />} />
       </Routes> 
     </>
   );
