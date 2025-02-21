@@ -38,7 +38,7 @@ const RentalDetails = () => {
         </section>
         <section>
             <h2>Reviews:</h2>
-            {!rental.reviews.map((review) = > (
+            {!rental.reviews.map((review) => (
                 <article key={review._id}>
                     <head>
                         <p>
