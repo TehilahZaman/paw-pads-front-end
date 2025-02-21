@@ -1,4 +1,5 @@
 // src/App.jsx
+
 import { useContext, useState } from 'react';
 import { Routes, Route } from 'react-router'
 import NavBar from './components/NavBar/NavBar';
@@ -10,13 +11,14 @@ import BookingForm  from './components/BookingForm/BookingForm';
 import RentalList from './components/RentalList/RentalList';
 import RentalDetail from './components/RentalDetail/RentalDetail';
 
+import ReviewForm from "./components/ReviewForm/ReviewForm";
+
 import { UserContext } from "./contexts/UserContext";
 const App = () => {
   
   const [rentals, setRentals] = useState([]);
  
   const { user } = useContext(UserContext)
-  const { user } = useContext(UserContext);
 
   return (
     <>
