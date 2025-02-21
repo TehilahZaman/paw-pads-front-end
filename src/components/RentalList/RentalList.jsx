@@ -3,7 +3,7 @@ import { Link } from "react-router"
 
 export default function RentalList(props){
     const rentalLis = props.rentals.map((rental) => {
-        return <li key={rental._id}> <Link to={`rentals/${rental._id}`}></Link>{rental.name}</li>
+        return <Link key={rental._id} to={`/rentals/${rental._id}`}>{rental.name}</Link>
     })
 
     return (
