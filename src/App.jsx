@@ -7,6 +7,8 @@ import SignInForm from './components/SignInForm/SignInForm';
 import Dashboard from './components/Dashboard/Dashboard';
 import Landing from './components/Landing/Landing';
 import BookingForm  from './components/BookingForm/BookingForm';
+import RentalDetails from './components/RentalDetails/RentalDetails';
+
 
 import { UserContext } from './contexts/UserContext';
 const App = () => {

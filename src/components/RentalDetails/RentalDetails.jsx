@@ -22,7 +22,35 @@ const RentalDetails = () => {
     console.log('rental date:', rental)
 
     return (
-    <main>Rental Detials</main>
+    <main>
+        <section>
+            <header>
+                <p></p>
+                <h1>{rental.name}</h1>
+                <p>
+
+                </p>
+            </header>
+            <p>{rental.photo}</p>
+            <p>{rental.location}</p>
+            <p>{rental.typeOfRental}</p>
+            <p>{rental.padOwner}</p>
+        </section>
+        <section>
+            <h2>Reviews:</h2>
+            {!rental.reviews.map((review) = > (
+                <article key={review._id}>
+                    <head>
+                        <p>
+                            {`${review.author.usernam} post on
+                            ${new Date(review.createdAt).toLocaleDateString()}`}
+                        </p>
+                    </head>
+                    <p>{review.text}</p>
+                </article>
+            ))}
+        </section>
+    </main>
     )
 };
 
