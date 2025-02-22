@@ -3,18 +3,16 @@ import { useState, useEffect } from "react";
 import * as rentalService from "../../services/rentalService";
 import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../ReviewForm/ReviewForm.jsx";
+import { Link } from "react-router";
 
 const RentalDetails = () => {
   const { rentalId } = useParams();
-  console.log("rentalId", rentalId);
 
   const [rental, setRental] = useState(null);
 
   useEffect(() => {
-    console.log("running");
     const fetchRental = async () => {
       const rentalData = await rentalService.show(rentalId);
-      console.log(rentalData, "<---- data");
       setRental(rentalData);
     };
     fetchRental();
@@ -29,10 +27,17 @@ const RentalDetails = () => {
       reviewFormData
     );
     setRental({ ...rental, reviews: [...rental.reviews, newReview] });
-    console.log(newReview, "new review");
   };
 
-  console.log("rental date:", rental);
+  const handleDelete = async (reviewId) => {
+    await reviewService.deleteReview(rental._id, reviewId);
+    setRental({
+      ...rental,
+      reviews: rental.reviews.filter((review) => review._id !== reviewId),
+    });
+    // prop.setRentals([...rentals, rental])
+  };
+
   if (!rental) return;
   return (
     <main>
@@ -63,6 +68,8 @@ const RentalDetails = () => {
                              ).toLocaleDateString()}`}
             </p>
             <p>{review.text}</p>
+            <button>Edit</button>
+            <button onClick={() => handleDelete(review._id)}>Delete</button>
           </article>
         ))}
         <ReviewForm handleAddReview={handleAddReview} />

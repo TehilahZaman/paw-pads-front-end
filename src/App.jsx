@@ -12,7 +12,6 @@ import RentalDetails from "./components/RentalDetails/RentalDetails";
 import RentalList from "./components/RentalList/RentalList";
 import * as rentalService from "./services/rentalService.js";
 
-
 import { UserContext } from "./contexts/UserContext";
 const App = () => {
   const [rentals, setRentals] = useState([]);
@@ -37,6 +36,7 @@ const App = () => {
         <Route path="/users/book" element={<BookingForm />} />
         <Route path="/rentals" element={<RentalList rentals={rentals} />} />
         <Route path="/rentals/:rentalId" element={<RentalDetails />} />
+        <Route path="/rentals/:rentalId/reviews/:reviewId" />
       </Routes>
     </>
   );
