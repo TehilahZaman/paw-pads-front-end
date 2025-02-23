@@ -3,18 +3,16 @@ import { useState, useEffect } from "react";
 import * as rentalService from "../../services/rentalService";
 import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../ReviewForm/ReviewForm.jsx";
+import { Link } from "react-router";
 
-const RentalDetails = () => {
-  const { rentalId } = useParams();
-  console.log("rentalId", rentalId);
+const RentalDetails = (props) => {
+  const { rentalId, reviewId } = useParams();
 
   const [rental, setRental] = useState(null);
 
   useEffect(() => {
-    console.log("running");
     const fetchRental = async () => {
       const rentalData = await rentalService.show(rentalId);
-      console.log(rentalData, "<---- data");
       setRental(rentalData);
     };
     fetchRental();
@@ -29,10 +27,17 @@ const RentalDetails = () => {
       reviewFormData
     );
     setRental({ ...rental, reviews: [...rental.reviews, newReview] });
-    console.log(newReview, "new review");
   };
 
-  console.log("rental date:", rental);
+  const handleDelete = async (reviewId) => {
+    await reviewService.deleteReview(rental._id, reviewId);
+    setRental({
+      ...rental,
+      reviews: rental.reviews.filter((review) => review._id !== reviewId),
+    });
+    props.setRentals([...props.rentals, rental]);
+  };
+
   if (!rental) return;
   return (
     <main>
@@ -62,7 +67,17 @@ const RentalDetails = () => {
                                review.createdAt
                              ).toLocaleDateString()}`}
             </p>
+            <p>name: {review.name}</p>
             <p>{review.text}</p>
+            {/* {reviewId ? <ReviewForm /> : null} */}
+
+            <button>
+              <Link to={`/rentals/${rental._id}/reviews/${review._id}/edit`}>
+                {" "}
+                Edit{" "}
+              </Link>
+            </button>
+            <button onClick={() => handleDelete(review._id)}>Delete</button>
           </article>
         ))}
         <ReviewForm handleAddReview={handleAddReview} />
@@ -72,25 +87,3 @@ const RentalDetails = () => {
 };
 
 export default RentalDetails;
-
-// export default function RentalDetail(props){
-//     if(props.selectedRental === null){
-//         return (
-//             <section>
-//                 <h2>No Rental Selected</h2>
-//             </section>
-//         )
-//     }
-
-// return (
-//     <section>
-//         <h2>{props.selectedRental.name}</h2>
-//         <span>Photo: {props.selectedRental.photo}</span>
-//         <br />
-//         <span>Location: {props.selectedRental.location}</span>
-//         <br />
-//         <span>Reviews: {props.selectedRental.review}</span>
-//         <br />
-//     </section>
-// )
-// }
