@@ -52,6 +52,26 @@ const updateReview = async (rentalId, reviewId, reviewFormData) => {
   }
 };
 
-// delete route ...
+// delete route
+const deleteReview = async (rentalId, reviewId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${rentalId}/reviews/${reviewId}}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
 
-export { createReview, updateReview };
+    const data = res.json();
+
+    if (data.err) {
+      throw new Error(data.err);
+    }
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    throw new Error(err);
+  }
+};
+export { createReview, updateReview, deleteReview };
