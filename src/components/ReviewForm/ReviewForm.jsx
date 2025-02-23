@@ -3,7 +3,7 @@
 // <ReviewForm handleAddReview={handleAddReview}/>
 
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import * as reviewService from "../../services/reviewService";
 
 const initialState = { name: "", text: "" };
@@ -12,6 +12,7 @@ export default function ReviewForm(props) {
   const [formData, setFormData] = useState(initialState);
   const { rentalId, reviewId } = useParams();
   console.log(rentalId, reviewId, "<---- log");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchReview = async () => {
@@ -31,7 +32,10 @@ export default function ReviewForm(props) {
     // if reviewId exists in params (url) then update review will run
     // else add review will run
     if (rentalId && reviewId) {
-      reviewService.updateReview(rentalId, reviewId, formData);
+      props.handleUpdate(rentalId, reviewId, formData);
+      // reviewService.updateReview(rentalId, reviewId, formData);
+      // props.setRental(...rentalId,  reviews: [...props.rental.reviews, newReview] )
+      navigate(`/rentals/${rentalId}`);
     } else {
       props.handleAddReview(formData, rentalId);
     }
