@@ -27,16 +27,13 @@ const createReview = async (rentalId, reviewFormData) => {
   }
 };
 
-// update route ...
-const updateReview = async (rentalId, reviewId, reviewFormData) => {
+// show route
+const showReview = async (rentalId, reviewId) => {
   try {
-    const res = await fetch(`${BASE_URL}/${rentalId}/reviews/${reviewId}}`, {
-      method: "PUT",
+    const res = await fetch(`${BASE_URL}/${rentalId}/reviews/${reviewId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
-        "Content-Type": "application/json",
       },
-      body: JSON.stringify(reviewFormData),
     });
 
     const data = res.json();
@@ -52,6 +49,54 @@ const updateReview = async (rentalId, reviewId, reviewFormData) => {
   }
 };
 
-// delete route ...
+// update route ...
+const updateReview = async (rentalId, reviewId, reviewFormData) => {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/${rentalId}/reviews/${reviewId}/edit`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewFormData),
+      }
+    );
 
-export { createReview, updateReview };
+    const data = res.json();
+
+    if (data.err) {
+      throw new Error(data.err);
+    }
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    throw new Error(err);
+  }
+};
+
+// delete route
+const deleteReview = async (rentalId, reviewId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${rentalId}/reviews/${reviewId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+
+    const data = res.json();
+
+    if (data.err) {
+      throw new Error(data.err);
+    }
+
+    return data;
+  } catch (err) {
+    console.log(err);
+    throw new Error(err);
+  }
+};
+export { createReview, updateReview, deleteReview, showReview };

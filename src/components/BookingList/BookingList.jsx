@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 
 import * as bookingService from '../../services/bookingService';
 
-const BookingList = (props) => {
-    
+const BookingList = () => {
     const [bookings, setBookings] = useState([]);
 
     console.log(localStorage.getItem('token'));

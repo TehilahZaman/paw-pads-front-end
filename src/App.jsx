@@ -55,19 +55,24 @@ const App = () => {
     <>
       <NavBar />
       <Routes>
-        <Route path='/' element={user ? <Dashboard /> : <Landing /> } />
-        <Route path='/sign-up' element={<SignUpForm />} />
-        <Route path='/sign-in' element={<SignInForm />} />
-        <Route path='/users/book' element={<BookingForm />} />
-        <Route path='/rentals' element={<RentalList rentals={rentals} />} />
-        <Route path='/rentals/:rentalId' element={<RentalDetails />} />
+        <Route path="/" element={user ? <Dashboard /> : <Landing />} />
+        <Route path="/sign-up" element={<SignUpForm />} />
+        <Route path="/sign-in" element={<SignInForm />} />
+        <Route path="/users/book" element={<BookingForm />} />
+        <Route path="/rentals" element={<RentalList rentals={rentals} />} />
+        <Route
+          path="/rentals/:rentalId"
+          element={<RentalDetails rentals={rentals} setRentals={setRentals} />}
+        />
+        <Route
+          path="/rentals/:rentalId/reviews/:reviewId/edit"
+          element={<RentalDetails />}
+        />
         <Route path='/users/bookings' element={<BookingList />} />
         <Route path='/users/bookings/:bookingId' element={<BookingDetails />}/>
-      </Routes> 
+      </Routes>
     </>
   );
 };
 
 export default App;
-
-// This is Zak's comment
