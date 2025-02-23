@@ -33,7 +33,7 @@ const App = () => {
   const handleAddBooking = async (formData) => {
     console.log('bookingFormData', formData);
     const newBooking = await bookingService.addBooking(formData)
-    setBookings([...bookings, newBooking])
+    // setBookings([...bookings, newBooking])
     navigate('/bookings')
   }
 
