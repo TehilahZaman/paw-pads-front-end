@@ -21,7 +21,6 @@ export {
 };
 
 
-
 const addBooking = async (formData) => {
     try {
         const res = await fetch(BASE_URL, {
