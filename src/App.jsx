@@ -50,8 +50,5 @@ const App = () => {
 };
 
 export default App;
-<<<<<<< HEAD
 
-// This is Zak's comment 
-=======
->>>>>>> b046fca724c6ed940c4051e6561bb2b3b8a8776d
+// This is Zak's comment

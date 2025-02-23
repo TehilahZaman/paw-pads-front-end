@@ -43,7 +43,11 @@ const RentalDetails = (props) => {
       reviewId,
       formData
     );
-    setRental({ ...rental, reviews: [...rental.reviews, updatedReview] });
+    setRental({
+      ...rental,
+      reviews: rental.reviews.filter((review) => review._id !== reviewId),
+      updatedReview,
+    });
   };
 
   if (!rental) return;
@@ -61,6 +65,7 @@ const RentalDetails = (props) => {
           {rental.padOwner}
           ------- we need to change this !
         </p>
+        <button>Booking button TB added</button>
       </section>
       <section>
         <h2>Reviews:</h2>
@@ -75,7 +80,7 @@ const RentalDetails = (props) => {
                                review.createdAt
                              ).toLocaleDateString()}`}
             </p>
-            <p>name: {review.name}</p>
+            <p>ID: {review._id}</p>
             <p>{review.text}</p>
             {/* {reviewId ? <ReviewForm /> : null} */}
 
