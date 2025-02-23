@@ -57,7 +57,6 @@ const RentalDetails = (props) => {
     <main>
       <section>
         <header>
-          <p></p>
           <h1>{rental.name}</h1>
         </header>
         <p>{rental.photo}</p>
