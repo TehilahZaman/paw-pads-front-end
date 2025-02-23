@@ -6,7 +6,7 @@ import ReviewForm from "../ReviewForm/ReviewForm.jsx";
 import { Link } from "react-router";
 
 const RentalDetails = (props) => {
-  const { rentalId } = useParams();
+  const { rentalId, reviewId } = useParams();
 
   const [rental, setRental] = useState(null);
 
@@ -35,6 +35,7 @@ const RentalDetails = (props) => {
       ...rental,
       reviews: rental.reviews.filter((review) => review._id !== reviewId),
     });
+    props.setRentals([...props.rentals, rental]);
   };
 
   const handleUpdate = async (rentalId, reviewId, formData) => {
@@ -44,9 +45,10 @@ const RentalDetails = (props) => {
       formData
     );
     setRental({
-      ...rental,
-      reviews: rental.reviews.filter((review) => review._id !== reviewId),
-      updatedReview,
+      reviews: [
+        rental.reviews.filter((review) => review._id !== reviewId),
+        updatedReview,
+      ],
     });
   };
 
