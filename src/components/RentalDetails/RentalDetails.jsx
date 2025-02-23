@@ -5,8 +5,8 @@ import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../ReviewForm/ReviewForm.jsx";
 import { Link } from "react-router";
 
-const RentalDetails = () => {
-  const { rentalId } = useParams();
+const RentalDetails = (props) => {
+  const { rentalId, reviewId } = useParams();
 
   const [rental, setRental] = useState(null);
 
@@ -35,7 +35,7 @@ const RentalDetails = () => {
       ...rental,
       reviews: rental.reviews.filter((review) => review._id !== reviewId),
     });
-    // prop.setRentals([...rentals, rental])
+    props.setRentals([...props.rentals, rental]);
   };
 
   if (!rental) return;
@@ -67,8 +67,16 @@ const RentalDetails = () => {
                                review.createdAt
                              ).toLocaleDateString()}`}
             </p>
+            <p>name: {review.name}</p>
             <p>{review.text}</p>
-            <button>Edit</button>
+            {/* {reviewId ? <ReviewForm /> : null} */}
+
+            <button>
+              <Link to={`/rentals/${rental._id}/reviews/${review._id}/edit`}>
+                {" "}
+                Edit{" "}
+              </Link>
+            </button>
             <button onClick={() => handleDelete(review._id)}>Delete</button>
           </article>
         ))}
@@ -79,25 +87,3 @@ const RentalDetails = () => {
 };
 
 export default RentalDetails;
-
-// export default function RentalDetail(props){
-//     if(props.selectedRental === null){
-//         return (
-//             <section>
-//                 <h2>No Rental Selected</h2>
-//             </section>
-//         )
-//     }
-
-// return (
-//     <section>
-//         <h2>{props.selectedRental.name}</h2>
-//         <span>Photo: {props.selectedRental.photo}</span>
-//         <br />
-//         <span>Location: {props.selectedRental.location}</span>
-//         <br />
-//         <span>Reviews: {props.selectedRental.review}</span>
-//         <br />
-//     </section>
-// )
-// }
