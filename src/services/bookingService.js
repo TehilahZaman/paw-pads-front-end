@@ -41,7 +41,3 @@ const addBooking = async (formData) => {
 export {
     addBooking,
 };
-
-const editBooking = async () => {
-
-}
