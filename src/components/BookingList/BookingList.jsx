@@ -38,12 +38,6 @@ const BookingList = () => {
                           <article>
                                 <header>
                                       <h2>Booking for {booking.name}</h2>
-                                      <p>
-                                            {`${booking.name} made a booking on
-                                ${new Date(
-                                    booking.createdAt
-                                ).toLocaleDateString()}`}
-                            </p>
                         </header>
                     </article>
                 </Link>
