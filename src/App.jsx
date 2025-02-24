@@ -87,6 +87,7 @@ const App = () => {
     }
   }
 
+
   return (
     <>
       <NavBar />
@@ -119,7 +120,6 @@ const App = () => {
           path="/rentals/:rentalId/reviews/:reviewId/edit"
           element={<RentalDetails />}
         />
-        {/* <Route path='/users/bookings' element={<BookingList />} /> */}
         <Route
           path="/bookings/:bookingId"
           element={<BookingDetails handleDeleteBooking={handleDeleteBooking} />}

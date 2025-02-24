@@ -47,4 +47,34 @@ const addBooking = async (formData) => {
   }
 };
 
-export { index, show, addBooking };
+const updateBooking = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/${bookingId}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookingFormData),
+    });
+    return res.json();
+  } catch(err){
+    console.log(err)
+  }
+};
+
+const deleteBooking = async (bookingId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${bookingId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return res.json();
+  } catch (err) {
+    console.log(err)
+  }
+};
+
+export { index, show, addBooking, updateBooking, deleteBooking };
