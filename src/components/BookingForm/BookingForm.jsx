@@ -1,15 +1,19 @@
 // practice making a form in react
 
 import { useState } from "react";
+const date = new Date();
+const formattedDate = date.toLocaleDateString('en-US');
+console.log(formattedDate);
+
 
 const initialState = {
     name: '',
-    checkIn: new Date(),
-    checkOut: new Date(),
+    checkIn: formattedDate,
+    checkOut: formattedDate,
     message: ''
 }
 
-const BookingForm = () => {
+const BookingForm = (props) => {
     const [formData, setFormData] = useState(initialState)
 
     const handleChange = (buttonClicked) => {
@@ -20,10 +24,11 @@ const BookingForm = () => {
         })
     }
 
-    const handleSubmit = (buttonClicked) => {
-        buttonClicked.preventDefault(),
+    const handleSubmit = (evt) => {
+        evt.preventDefault(),
             console.log('Form Data Submitted', formData)
-            setFormData(initialState) 
+            props.handleAddBooking(formData)
+
     }
 
     return (
@@ -39,21 +44,21 @@ const BookingForm = () => {
                 />
             </div>
             <div>
-                <label htmlFor="check-in">Check-in:</label>
+                <label htmlFor="checkIn">Check-in:</label>
                 <input
                     type="date"
-                    id="check-in"
-                    name="check-in"
+                    id="checkIn"
+                    name="checkIn"
                     value={formData.checkIn}
                     onChange={handleChange}
                 />
             </div>
             <div>
-                <label htmlFor="check-out">Check-out:</label>
+                <label htmlFor="checkOut">Check-out:</label>
                 <input
                     type="date"
-                    id="check-out"
-                    name="check-out"
+                    id="checkOut"
+                    name="checkOut"
                     value={formData.checkOut}
                     onChange={handleChange}
                 />
