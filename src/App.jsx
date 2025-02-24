@@ -60,6 +60,11 @@ const App = () => {
     navigate("/bookings");
   };
 
+  const handleUpdateBooking = async (bookingId, bookingFormData) => {
+    console.log('bookingId:', bookingId, bookingFormData);
+    navigate(`/bookings/${bookingId}`);
+  };
+
   return (
     <>
       <NavBar />
@@ -84,6 +89,7 @@ const App = () => {
         />
         {/* <Route path='/users/bookings' element={<BookingList />} /> */}
         <Route path='/bookings/:bookingId' element={<BookingDetails />}/>
+        <Route path='/bookings/:bookingId/edit' element={<BookingForm handleUpdateBooking={handleUpdateBooking} />}/>
       </Routes>
     </>
   );

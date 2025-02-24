@@ -47,4 +47,19 @@ const addBooking = async (formData) => {
   }
 };
 
+const updateBooking = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/${bookingId}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      }
+    })
+
+  } catch(err){
+    console.log(err)
+  }
+}
+
 export { index, show, addBooking };
