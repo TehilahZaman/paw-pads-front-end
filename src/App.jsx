@@ -67,6 +67,12 @@ const App = () => {
     navigate(`/bookings/${bookingId}`);
   };
 
+  const handleDeleteBooking = async (bookingId) => {
+    console.log('bookingId', bookingId);
+    setBookings(bookings.filter((booking) => booking._id !== deletedBooking._id));
+    navigate('/bookings');
+  };
+
   return (
     <>
       <NavBar />
@@ -89,9 +95,9 @@ const App = () => {
           path="/rentals/:rentalId/reviews/:reviewId/edit"
           element={<RentalDetails />}
         />
-        {/* <Route path='/users/bookings' element={<BookingList />} /> */}
         <Route path='/bookings/:bookingId' element={<BookingDetails />}/>
         <Route path='/bookings/:bookingId/edit' element={<BookingForm handleUpdateBooking={handleUpdateBooking} />}/>
+        <Route path='/bookings/:bookingId' element={<BookingDetails handleDeleteBooking={handleDeleteBooking} />}/>
       </Routes>
     </>
   );

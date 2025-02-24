@@ -1,11 +1,15 @@
 import { useParams, Link } from "react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+
+import { UserContext } from '../../contexts/UserContext';
 
 import * as bookingService from "../../services/bookingService";
 
-const BookingDetails = () => {
-  const [booking, setBooking] = useState(null);
-  const { bookingId } = useParams();
+const BookingDetails = (props) => {
+    const { bookingId } = useParams();
+    const { user } = useContext(UserContext);
+
+    const [booking, setBooking] = useState(null);
 
   useEffect(() => {
     const fetchBooking = async () => {
@@ -37,6 +41,11 @@ const BookingDetails = () => {
           <p>Date:{booking.checkOut}</p>
           {booking.message ? <p>{booking.message}</p> : null}
           <Link to={`/bookings/${bookingId}/edit`}>Edit</Link>
+          {booking.name._id === user._id && (
+            <>
+                <button onClick={() => props.handleDeleteBooking(bookingId)}>Delete</button>
+            </>
+          )}
         </header>
       </section>
     </main>
