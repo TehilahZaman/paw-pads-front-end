@@ -14,7 +14,7 @@ const index = async () => {
     }
     return data;
   } catch (error) {
-    console.log(error, '<--- this is the error');
+    console.log(error, '<--this is the error');
     throw new Error(error);
   }
 };
@@ -32,7 +32,7 @@ const show = async (bookingId) => {
 
 const addBooking = async (formData) => {
   try {
-    const res = await fetch(BASE_URL, {
+    const res = await fetch(`${BASE_URL}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
