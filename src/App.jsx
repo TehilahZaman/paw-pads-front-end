@@ -8,11 +8,11 @@ import SignInForm from "./components/SignInForm/SignInForm";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Landing from "./components/Landing/Landing";
 import BookingForm from "./components/BookingForm/BookingForm";
-import BookingList from './components/BookingList/BookingList';
+import BookingList from "./components/BookingList/BookingList";
 import RentalDetails from "./components/RentalDetails/RentalDetails";
 import RentalList from "./components/RentalList/RentalList";
 import * as rentalService from "./services/rentalService.js";
-import * as bookingService from './services/bookingService'
+import * as bookingService from "./services/bookingService";
 
 import { UserContext } from "./contexts/UserContext";
 
@@ -28,14 +28,14 @@ const App = () => {
   }, []);
 
   const { user } = useContext(UserContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleAddBooking = async (formData) => {
-    console.log('bookingFormData', formData);
-    const newBooking = await bookingService.addBooking(formData)
+    console.log("bookingFormData", formData);
+    const newBooking = await bookingService.addBooking(formData);
     // setBookings([...bookings, newBooking])
-    navigate('/bookings')
-  }
+    navigate("/bookings");
+  };
 
   return (
     <>
@@ -44,8 +44,11 @@ const App = () => {
         <Route path="/" element={user ? <Dashboard /> : <Landing />} />
         <Route path="/sign-up" element={<SignUpForm />} />
         <Route path="/sign-in" element={<SignInForm />} />
-        <Route path="/bookings/new" element={<BookingForm handleAddBooking={handleAddBooking} />} />
-        <Route path='/bookings' element={<BookingList />} />
+        <Route
+          path="/users/bookings/new"
+          element={<BookingForm handleAddBooking={handleAddBooking} />}
+        />
+        <Route path="/users/bookings" element={<BookingList />} />
         <Route path="/rentals" element={<RentalList rentals={rentals} />} />
         <Route
           path="/rentals/:rentalId"
