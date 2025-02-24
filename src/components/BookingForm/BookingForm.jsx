@@ -17,15 +17,14 @@ const initialState = {
 };
 
 const BookingForm = (props) => {
-
   const [formData, setFormData] = useState(initialState);
   const { bookingId } = useParams();
-
 
   useEffect(() => {
     const fetchBookingDetails = async () => {
       const bookingData = await bookingService.show(bookingId);
       setFormData(bookingData);
+      console.log(bookingData, "<----- Booking Data");
     };
     if (bookingId) fetchBookingDetails();
   }, [bookingId]);
@@ -47,56 +46,66 @@ const BookingForm = (props) => {
     }
   };
 
+  function getFormattedDate(date) {
+    var year = date.getFullYear();
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="name">Name:</label>
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor="checkIn">Check-in:</label>
-                <input
-                    type="date"
-                    id="checkIn"
-                    name="checkIn"
-                    value={formData.checkIn}
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor="checkOut">Check-out:</label>
-                <input
-                    type="date"
-                    id="checkOut"
-                    name="checkOut"
-                    value={formData.checkOut}
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <label htmlFor="message">Message:</label>
-                <input
-                    type="text"
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                />
-            </div>
-            <div>
-                <h1>{bookingId ? 'Edit Booking' : 'New Booking'}</h1>
-                <form onSubmit={handleSubmit}></form>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
-    )
-}
+    var month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : "0" + month;
+
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : "0" + day;
+
+    return year + "-" + month + "-" + day;
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="checkIn">Check-in:</label>
+        <input
+          type="date"
+          id="checkIn"
+          name="checkIn"
+          value={getFormattedDate(new Date(formData.checkIn))}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="checkOut">Check-out:</label>
+        <input
+          type="date"
+          id="checkOut"
+          name="checkOut"
+          value={getFormattedDate(new Date(formData.checkOut))}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="message">Message:</label>
+        <input
+          type="text"
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <h1>{bookingId ? "Edit Booking" : "New Booking"}</h1>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
 
 export default BookingForm;
