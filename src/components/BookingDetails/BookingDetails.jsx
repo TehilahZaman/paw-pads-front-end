@@ -26,14 +26,12 @@ const BookingDetails = () => {
             <section>
                 <header>
                     <p>{booking.name.toUpperCase()}</p>
-                    <h1>{booking.checkIn}</h1>
-                    <h1>{booking.checkOut}</h1>
                     <p>
                         {`${booking.name} made a booking on
                         ${new Date(booking.createdAt).toLocaleDateString()}`}
                     </p>
-                    <p>Date:{booking.checkIn}</p>
-                    <p>Date:{booking.checkOut}</p>
+                    <p>Check-In Date:{booking.checkIn}</p>
+                    <p>Check-Out Date:{booking.checkOut}</p>
                     {booking.message ? <p>{booking.message}</p> : null}
                 </header>
             </section>
