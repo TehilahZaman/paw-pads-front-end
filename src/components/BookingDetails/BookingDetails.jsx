@@ -1,5 +1,5 @@
 
-import { useParams, Link, useNavigate } from "react-router";
+import { useParams, Link } from "react-router";
 import { useState, useEffect } from "react";
 
 import * as bookingService from "../../services/bookingService";
@@ -8,7 +8,6 @@ const BookingDetails = (props) => {
 
   const [booking, setBooking] = useState(null);
   const { bookingId } = useParams();
-  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -49,7 +48,6 @@ const BookingDetails = (props) => {
           <h1>Check-in: {getFormattedDate(new Date(booking.checkIn))}</h1>
           <h1>Check-out: {getFormattedDate(new Date(booking.checkOut))}</h1>
           Message: {booking.message ? <p>{booking.message}</p> : null}
-
         </header>
         <button>
           {" "}

@@ -14,7 +14,7 @@ const index = async () => {
     }
     return data;
   } catch (error) {
-    console.log(error, '<--this is the error');
+    console.log(error, "<--this is the error");
     throw new Error(error);
   }
 };
@@ -47,10 +47,10 @@ const addBooking = async (formData) => {
   }
 };
 
-const updateBooking = async () => {
+const updateBooking = async (bookingId, bookingFormData) => {
   try {
     const res = await fetch(`${BASE_URL}/${bookingId}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
         "Content-Type": "application/json",
@@ -58,22 +58,22 @@ const updateBooking = async () => {
       body: JSON.stringify(bookingFormData),
     });
     return res.json();
-  } catch(err){
-    console.log(err)
+  } catch (err) {
+    console.log(err);
   }
 };
 
 const deleteBooking = async (bookingId) => {
   try {
     const res = await fetch(`${BASE_URL}/${bookingId}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
     return res.json();
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 };
 
