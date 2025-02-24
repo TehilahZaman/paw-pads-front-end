@@ -46,10 +46,10 @@ const App = () => {
         <Route path="/sign-up" element={<SignUpForm />} />
         <Route path="/sign-in" element={<SignInForm />} />
         <Route
-          path="/users/bookings/new"
+          path="/bookings/new"
           element={<BookingForm handleAddBooking={handleAddBooking} />}
         />
-        <Route path="/users/bookings" element={<BookingList />} />
+        <Route path="/bookings" element={<BookingList />} />
         <Route path="/rentals" element={<RentalList rentals={rentals} />} />
         <Route
           path="/rentals/:rentalId"

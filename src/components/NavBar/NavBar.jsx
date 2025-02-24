@@ -28,11 +28,10 @@ const NavBar = () => {
           {/* The new link */}
 
           <li><Link to='/'>Dashboard</Link></li>
-          <li><Link to='/users/bookings/new'>Book a Pad</Link></li>
-          <li><Link to='/users/bookings'>Your Bookings</Link></li>
-          <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
-          <li><Link to='/users/book'>Book</Link></li>
           <li><Link to='/rentals'>Rental List</Link></li>
+          <li><Link to='/bookings/new'>Book a Pad</Link></li>
+          <li><Link to='/bookings'>Your Bookings</Link></li>
+          <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
         </ul>
       ) : (
         <ul>
