@@ -54,12 +54,13 @@ const updateBooking = async () => {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
         "Content-Type": "application/json",
-      }
-    })
-
+      },
+      body: JSON.stringify(bookingFormData),
+    });
+    return res.json();
   } catch(err){
     console.log(err)
   }
 }
 
-export { index, show, addBooking };
+export { index, show, addBooking, updateBooking };
