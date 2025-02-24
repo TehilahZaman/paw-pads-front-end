@@ -56,22 +56,37 @@ const App = () => {
   const handleAddBooking = async (formData) => {
     console.log("bookingFormData", formData);
     const newBooking = await bookingService.addBooking(formData);
-    setBookings([...bookings, newBooking])
+    setBookings([...bookings, newBooking]);
     navigate("/bookings");
   };
 
-  const handleUpdateBooking = async (bookingId, bookingFormData) => {
-    console.log('bookingId:', bookingId, bookingFormData);
-    const updateBooking = await bookingService.updateBooking(bookingId, bookingFormData);
-    setBookings(bookings.map((booking) => (bookingId === booking._id ? updatedBooking : booking )));
-    navigate(`/bookings/${bookingId}`);
-  };
+  async function handleUpdateBooking(bookingId, formData) {
+    try {
+      const updatedBooking = await bookingService.updateBooking(
+        bookingId,
+        formData
+      );
+      setBookings((booking) =>
+        bookingId === booking._id ? updatedBooking : booking
+      );
+      navigate(`/bookings/${bookingId}}`);
+    } catch (err) {
+      console.log(err.message, "<----error!");
+    }
+  }
 
-  const handleDeleteBooking = async (bookingId) => {
-    console.log('bookingId', bookingId);
-    setBookings(bookings.filter((booking) => booking._id !== deletedBooking._id));
-    navigate('/bookings');
-  };
+  async function handleDeleteBooking(bookingId) {
+    try {
+      await bookingService.deleteBooking(bookingId);
+      setBookings(
+        bookingService.filter((booking) => booking._id !== bookingId)
+      );
+      navigate("/bookings");
+    } catch (err) {
+      console.log(err.message, "<----error!");
+    }
+  }
+
 
   return (
     <>
@@ -82,10 +97,20 @@ const App = () => {
         <Route path="/sign-in" element={<SignInForm />} />
         <Route
           path="/bookings/new"
-          element={<BookingForm handleAddBooking={handleAddBooking} />}
+          element={
+            <BookingForm
+              handleAddBooking={handleAddBooking}
+              handleUpdateBooking={handleUpdateBooking}
+            />
+          }
         />
-        
-        <Route path="/bookings" element={<BookingList />} />
+
+        <Route
+          path="/bookings"
+          element={
+            <BookingList bookings={bookings} setBookings={setBookings} />
+          }
+        />
         <Route path="/rentals" element={<RentalList rentals={rentals} />} />
         <Route
           path="/rentals/:rentalId"
@@ -95,9 +120,14 @@ const App = () => {
           path="/rentals/:rentalId/reviews/:reviewId/edit"
           element={<RentalDetails />}
         />
-        <Route path='/bookings/:bookingId' element={<BookingDetails />}/>
-        <Route path='/bookings/:bookingId/edit' element={<BookingForm handleUpdateBooking={handleUpdateBooking} />}/>
-        <Route path='/bookings/:bookingId' element={<BookingDetails handleDeleteBooking={handleDeleteBooking} />}/>
+        <Route
+          path="/bookings/:bookingId"
+          element={<BookingDetails handleDeleteBooking={handleDeleteBooking} />}
+        />
+        <Route
+          path="/bookings/:bookingId/edit"
+          element={<BookingForm handleUpdateBooking={handleUpdateBooking} />}
+        />
       </Routes>
     </>
   );
