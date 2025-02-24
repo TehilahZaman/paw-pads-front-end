@@ -27,7 +27,7 @@ const BookingForm = (props) => {
     const handleSubmit = (evt) => {
         evt.preventDefault(),
             console.log('Form Data Submitted', formData)
-            props.handleAddBooking(formData)
+        props.handleAddBooking(formData)
 
     }
 

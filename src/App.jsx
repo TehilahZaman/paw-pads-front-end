@@ -39,10 +39,8 @@ import { UserContext } from "./contexts/UserContext";
 // ]
 
 const App = () => {
-  const { user } = useContext(UserContext);
-
   const [rentals, setRentals] = useState([]);
-
+  const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
     async function fetchRentals() {
@@ -52,6 +50,16 @@ const App = () => {
     fetchRentals();
   }, []);
 
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleAddBooking = async (formData) => {
+    console.log("bookingFormData", formData);
+    const newBooking = await bookingService.addBooking(formData);
+    setBookings([...bookings, newBooking])
+    navigate("/bookings");
+  };
+
   return (
     <>
       <NavBar />
@@ -60,10 +68,11 @@ const App = () => {
         <Route path="/sign-up" element={<SignUpForm />} />
         <Route path="/sign-in" element={<SignInForm />} />
         <Route
-          path="/users/bookings/new"
+          path="/bookings/new"
           element={<BookingForm handleAddBooking={handleAddBooking} />}
         />
-        <Route path="/users/bookings" element={<BookingList />} />
+        
+        <Route path="/bookings" element={<BookingList />} />
         <Route path="/rentals" element={<RentalList rentals={rentals} />} />
         <Route
           path="/rentals/:rentalId"
@@ -73,8 +82,8 @@ const App = () => {
           path="/rentals/:rentalId/reviews/:reviewId/edit"
           element={<RentalDetails />}
         />
-        <Route path='/users/bookings' element={<BookingList />} />
-        <Route path='/users/bookings/:bookingId' element={<BookingDetails />}/>
+        {/* <Route path='/users/bookings' element={<BookingList />} /> */}
+        <Route path='/bookings/:bookingId' element={<BookingDetails />}/>
       </Routes>
     </>
   );

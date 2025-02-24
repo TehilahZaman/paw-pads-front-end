@@ -32,11 +32,11 @@ const BookingDetails = () => {
                         {`${booking.name} made a booking on
                         ${new Date(booking.createdAt).toLocaleDateString()}`}
                     </p>
-                <p>Date:{booking.checkIn}</p>
-                <p>Date:{booking.checkOut}</p>
-                {booking.message ? <p>{booking.message}</p> : null}
-            </header>
-        </section>
+                    <p>Date:{booking.checkIn}</p>
+                    <p>Date:{booking.checkOut}</p>
+                    {booking.message ? <p>{booking.message}</p> : null}
+                </header>
+            </section>
         </main >
     )
 };
