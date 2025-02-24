@@ -69,7 +69,7 @@ const App = () => {
       setBookings((booking) =>
         bookingId === booking._id ? updatedBooking : booking
       );
-      navigate(`/bookings/${bookingId}}`);
+      navigate(`/bookings/${bookingId}`);
     } catch (err) {
       console.log(err.message, "<----error!");
     }
