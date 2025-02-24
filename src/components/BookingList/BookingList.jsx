@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 
 import * as bookingService from "../../services/bookingService";
 
-const BookingList = () => {
-    const [bookings, setBookings] = useState([]);
+const BookingList = (props) => {
+    // const [bookings, setBookings] = useState([]);
 
     //   console.log(localStorage.getItem("token"));
-    console.log(bookings);
+    // console.log(bookings);
     useEffect(() => {
         const fetchAllBookings = async () => {
             try {
@@ -15,7 +15,7 @@ const BookingList = () => {
       console.log("the fetch function was called ");
             const bookingsData = await bookingService.index();
             console.log("bookingsData", bookingsData);
-            setBookings(bookingsData);
+            props.setBookings(bookingsData);
             } catch(err){
                 console.log(err.message, '<----error!')
             }
@@ -30,6 +30,7 @@ const BookingList = () => {
  
     return (
         <main>
+
               {!bookings.length ? <p>There are no bookings.</p> : null}
               {/* added: if booking doesn't exist ... */}
               {bookings.map((booking) => (

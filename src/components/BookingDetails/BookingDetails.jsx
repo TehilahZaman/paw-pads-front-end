@@ -1,11 +1,12 @@
-import { useParams } from "react-router";
+import { useParams, Link, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 
 import * as bookingService from "../../services/bookingService";
 
-const BookingDetails = () => {
+const BookingDetails = (props) => {
   const [booking, setBooking] = useState(null);
   const { bookingId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBooking = async () => {
@@ -19,7 +20,8 @@ const BookingDetails = () => {
     fetchBooking();
   }, [bookingId]);
 
-  console.log("booking", booking);
+    
+
   if (!booking) return <main>Loading...</main>;
 
   function getFormattedDate(date) {
@@ -48,7 +50,15 @@ const BookingDetails = () => {
           {/* <p>Date:{booking.checkIn}</p>
           <p>Date:{booking.checkOut}</p> */}
           Message: {booking.message ? <p>{booking.message}</p> : null}
+
         </header>
+        <button>
+          {" "}
+          <Link to={`/bookings/${bookingId}/edit`}>Edit Your Booking</Link>
+        </button>
+        <button onClick={() => props.handleDeleteBooking(bookingId)}>
+          Delete Your Booking{" "}
+        </button>
       </section>
     </main>
   );
