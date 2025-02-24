@@ -1,14 +1,11 @@
-
 import { useParams, Link } from "react-router";
 import { useState, useEffect } from "react";
 
 import * as bookingService from "../../services/bookingService";
 
 const BookingDetails = (props) => {
-
   const [booking, setBooking] = useState(null);
   const { bookingId } = useParams();
-
 
   useEffect(() => {
     const fetchBooking = async () => {
@@ -23,7 +20,7 @@ const BookingDetails = (props) => {
   }, [bookingId]);
 
   console.log("bookingId", bookingId);
-    
+  // console.log(booking.renter._id, "renter ID");
 
   if (!booking) return <main>Loading...</main>;
 

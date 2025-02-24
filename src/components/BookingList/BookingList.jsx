@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import * as bookingService from "../../services/bookingService";
 
 const BookingList = (props) => {
+  console.log(props);
   // const [bookings, setBookings] = useState([]);
 
   //   console.log(localStorage.getItem("token"));
