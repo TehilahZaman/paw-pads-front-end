@@ -18,6 +18,7 @@ import { UserContext } from "./contexts/UserContext";
 
 const App = () => {
   const [rentals, setRentals] = useState([]);
+  const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
     async function fetchRentals() {
@@ -33,7 +34,7 @@ const App = () => {
   const handleAddBooking = async (formData) => {
     console.log("bookingFormData", formData);
     const newBooking = await bookingService.addBooking(formData);
-    // setBookings([...bookings, newBooking])
+    setBookings([...bookings, newBooking])
     navigate("/bookings");
   };
 
