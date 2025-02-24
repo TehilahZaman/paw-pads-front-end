@@ -31,7 +31,10 @@ const NavBar = () => {
           <li><Link to='/rentals'>Rental List</Link></li>
           <li><Link to='/bookings/new'>Book a Pad</Link></li>
           <li><Link to='/bookings'>Your Bookings</Link></li>
+          {/* <li><Link to='/users/book'>Book</Link></li> */}
           <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
+          {/* <li><Link to='/bookings'>Bookings</Link></li> */}
+
         </ul>
       ) : (
         <ul>

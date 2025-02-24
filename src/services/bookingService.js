@@ -1,4 +1,6 @@
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/bookings`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/bookings`;
+//T: added /users
 
 const index = async () => {
   try {
@@ -13,7 +15,7 @@ const index = async () => {
     }
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error, '<--this is the error');
     throw new Error(error);
   }
 };
@@ -31,7 +33,7 @@ const show = async (bookingId) => {
 
 const addBooking = async (formData) => {
   try {
-    const res = await fetch(BASE_URL, {
+    const res = await fetch(`${BASE_URL}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
