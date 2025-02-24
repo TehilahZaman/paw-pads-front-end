@@ -38,12 +38,25 @@ const RentalDetails = (props) => {
     props.setRentals([...props.rentals, rental]);
   };
 
+  const handleUpdate = async (rentalId, reviewId, formData) => {
+    const updatedReview = await reviewService.updateReview(
+      rentalId,
+      reviewId,
+      formData
+    );
+    setRental({
+      reviews: [
+        rental.reviews.filter((review) => review._id !== reviewId),
+        updatedReview,
+      ],
+    });
+  };
+
   if (!rental) return;
   return (
     <main>
       <section>
         <header>
-          <p></p>
           <h1>{rental.name}</h1>
         </header>
         <p>{rental.photo}</p>
@@ -53,6 +66,7 @@ const RentalDetails = (props) => {
           {rental.padOwner}
           ------- we need to change this !
         </p>
+        <button>Booking button TB added</button>
       </section>
       <section>
         <h2>Reviews:</h2>
@@ -67,7 +81,7 @@ const RentalDetails = (props) => {
                                review.createdAt
                              ).toLocaleDateString()}`}
             </p>
-            <p>name: {review.name}</p>
+            <p>ID: {review._id}</p>
             <p>{review.text}</p>
             {/* {reviewId ? <ReviewForm /> : null} */}
 
@@ -80,7 +94,10 @@ const RentalDetails = (props) => {
             <button onClick={() => handleDelete(review._id)}>Delete</button>
           </article>
         ))}
-        <ReviewForm handleAddReview={handleAddReview} />
+        <ReviewForm
+          handleAddReview={handleAddReview}
+          handleUpdate={handleUpdate}
+        />
       </section>
     </main>
   );
