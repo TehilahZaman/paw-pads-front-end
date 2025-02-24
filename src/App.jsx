@@ -69,7 +69,8 @@ const App = () => {
       setBookings((booking) =>
         bookingId === booking._id ? updatedBooking : booking
       );
-      navigate(`/bookings/${bookingId}}`);
+      navigate(`/bookings/${bookingId}`);
+      // here was the extra }
     } catch (err) {
       console.log(err.message, "<----error!");
     }
@@ -78,15 +79,12 @@ const App = () => {
   async function handleDeleteBooking(bookingId) {
     try {
       await bookingService.deleteBooking(bookingId);
-      setBookings(
-        bookingService.filter((booking) => booking._id !== bookingId)
-      );
+      setBookings(bookings.filter((booking) => booking._id !== bookingId));
       navigate("/bookings");
     } catch (err) {
       console.log(err.message, "<----error!");
     }
   }
-
 
   return (
     <>
