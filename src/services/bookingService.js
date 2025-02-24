@@ -1,4 +1,4 @@
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/users/bookings`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/bookings`;
 //T: added /users
 
 const index = async () => {
@@ -14,7 +14,7 @@ const index = async () => {
     }
     return data;
   } catch (error) {
-    console.log(error);
+    console.log(error, '<--- this is the error');
     throw new Error(error);
   }
 };
