@@ -47,7 +47,7 @@ const addBooking = async (formData) => {
   }
 };
 
-const updateBooking = async () => {
+const updateBooking = async (bookingId, bookingFormData) => {
   try {
     const res = await fetch(`${BASE_URL}/${bookingId}`, {
       method: 'PUT',

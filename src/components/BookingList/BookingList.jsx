@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 import * as bookingService from "../../services/bookingService";
 
@@ -31,9 +31,9 @@ const BookingList = (props) => {
     return (
         <main>
 
-              {!bookings.length ? <p>There are no bookings.</p> : null}
+              {!props.bookings.length ? <p>There are no bookings.</p> : null}
               {/* added: if booking doesn't exist ... */}
-              {bookings.map((booking) => (
+              {props.bookings.map((booking) => (
                     //  changed {} to ()
                     <Link key={booking._id} to={`/bookings/${booking._id}`}>
                           <article>
