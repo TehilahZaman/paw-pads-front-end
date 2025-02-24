@@ -62,7 +62,7 @@ const App = () => {
 
   const handleUpdateBooking = async (bookingId, bookingFormData) => {
     console.log('bookingId:', bookingId, bookingFormData);
-    const updateBooking = await bookingService.updateBooking(bookingId, bookingFormData);
+    const updatedBooking = await bookingService.updateBooking(bookingId, bookingFormData);
     setBookings(bookings.map((booking) => (bookingId === booking._id ? updatedBooking : booking )));
     navigate(`/bookings/${bookingId}`);
   };
