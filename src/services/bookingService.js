@@ -57,7 +57,9 @@ const updateBooking = async (bookingId, bookingFormData) => {
       },
       body: JSON.stringify(bookingFormData),
     });
-    return res.json();
+
+    const data = res.json();
+    return data;
   } catch (err) {
     console.log(err);
   }
