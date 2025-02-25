@@ -1,5 +1,5 @@
 // in rental details page:
-
+import "../ReviewForm/ReviewForm.css";
 // <ReviewForm handleAddReview={handleAddReview}/>
 
 import { useState, useEffect } from "react";
@@ -45,7 +45,7 @@ export default function ReviewForm(props) {
   return (
     <section>
       <h2>Leave a review!</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         {/* <label htmlFor="name">Name</label>
         <input
           type="text"

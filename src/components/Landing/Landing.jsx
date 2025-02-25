@@ -1,14 +1,13 @@
 // src/components/Landing.jsx
+import "../Landing/Landing.css";
 
 const Landing = () => {
-    return (
-      <main>
-        <h1>Hello, you are on the landing page for visitors.</h1>
-        <p>Sign up now, or sign in to see your super secret dashboard!</p>
-      </main>
-    );
-  };
-  
-  export default Landing;
-  
-  
+  return (
+    <main>
+      <h1>Welcome to Paw Pads visitor page!</h1>
+      <p>Sign up now, or sign to rent a purr-fect place for your pet!</p>
+    </main>
+  );
+};
+
+export default Landing;
