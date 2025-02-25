@@ -1,7 +1,15 @@
+h1 {
+  display: inline-block;
+}
+
 img {
   margin-left: 39%;
 }
 
 .rental-section button {
   margin-left: 45%;
+}
+
+.review-section article {
+  border: none;
 }
