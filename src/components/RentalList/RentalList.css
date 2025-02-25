@@ -1,28 +1,31 @@
 /*  if this is to be white- 
 we could just make the background white  */
 
-.rental-list h1 {
-  text-align: center;
-}
 
 h2 {
   /* font-size: x-large; */
   margin-left: 100px;
-}
 
 .rental {
   display: flex;
   flex-direction: column;
   height: 265px;
+  width: 263px;
   font-size: x-large;
   text-decoration: none;
-  margin-left: 38px;
+  /* margin-left: 38px; */
   margin-bottom: 100px;
+  border: 4px solid black;
+  padding: 1px;
+}
+
+.rental-name {
+  color: black;
 }
 
 .rental-photo {
-  width: 250px;
-  height: 230px;
+  width: 215px;
+  height:180px;
   margin-left: 0px;
   margin-top: 20px;
 }
