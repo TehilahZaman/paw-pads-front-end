@@ -38,6 +38,7 @@ const BookingDetails = (props) => {
       <section>
         <header>
           {/* <p>Name: {booking.name.toUpperCase()}</p> */}
+          <img src={`${booking.rental.photo}`} height="300" width="300" />
           <h1>Rental for {booking.rental.name} </h1>
           <p>Check-in: {getFormattedDate(new Date(booking.checkIn))}</p>
           <p>Check-out: {getFormattedDate(new Date(booking.checkOut))}</p>
