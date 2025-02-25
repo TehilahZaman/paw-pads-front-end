@@ -1,5 +1,5 @@
 * {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 :root {
@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: gray;
+  background-color: white;
   /* Use a system font; if none are available, use an available sans-serif font */
   font-family: system-ui, sans-serif;
   /* Ensures full height compatibility across devices */

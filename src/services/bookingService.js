@@ -1,5 +1,4 @@
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/bookings`;
-//T: added /users
 
 const index = async () => {
   try {
@@ -40,7 +39,6 @@ const addBooking = async (formData, rentalId) => {
       },
       body: JSON.stringify(formData),
     });
-    console.log(res);
     return res.json();
   } catch (error) {
     console.log(error);

@@ -1,4 +1,5 @@
 // src/components/NavBar/NavBar.jsx
+import "../NavBar/NavBar.css";
 import { useContext } from "react";
 import { Link } from "react-router";
 
@@ -23,25 +24,38 @@ const NavBar = () => {
   return (
     <nav>
       {user ? (
-        <ul>
+        <ul className="nav">
           <li>Welcome, {user.username}</li>
-          {/* The new link */}
 
-          <li><Link to='/'>Dashboard</Link></li>
-          <li><Link to='/rentals'>Rental List</Link></li>
-          <li><Link to='/bookings/new'>Book a Pad</Link></li>
-          <li><Link to='/bookings'>Your Bookings</Link></li>
-          {/* <li><Link to='/users/book'>Book</Link></li> */}
-          <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
-          {/* <li><Link to='/bookings'>Bookings</Link></li> */}
-
+          <li>
+            <Link to="/">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/rentals">Rental List</Link>
+          </li>
+          {/* <li>
+            <Link to="/bookings/new">Book a Pad</Link>
+          </li> */}
+          <li>
+            <Link to="/bookings">Your Bookings</Link>
+          </li>
+          <li>
+            <Link to="/" onClick={handleSignOut}>
+              Sign Out
+            </Link>
+          </li>
         </ul>
       ) : (
-        <ul>
-          {/* Another new link */}
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/sign-in'>Sign In</Link></li>
-          <li><Link to='/sign-up'>Sign Up</Link></li>
+        <ul className="nav">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/sign-in">Sign In</Link>
+          </li>
+          <li>
+            <Link to="/sign-up">Sign Up</Link>
+          </li>
         </ul>
       )}
     </nav>

@@ -1,5 +1,5 @@
 // practice making a form in react
-
+import "../BookingForm/BookingForm.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
@@ -36,7 +36,7 @@ const BookingForm = (props) => {
       [name]: value,
     });
   };
-  
+
   const handleSubmit = (evt) => {
     evt.preventDefault(), console.log("Form Data Submitted", formData);
     if (bookingId) {
@@ -44,7 +44,6 @@ const BookingForm = (props) => {
     } else {
       props.handleAddBooking(formData, props.rentalId);
     }
-
   };
 
   function getFormattedDate(date) {
@@ -60,52 +59,53 @@ const BookingForm = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <section>
+      <h1>{bookingId ? "Edit Booking" : "New Booking"}</h1>
+      <form onSubmit={handleSubmit} className="form">
+        {/* <div>
         <label htmlFor="name">Name:</label>
         <input
-          type="text"
+        type="text"
           id="name"
           name="name"
           value={formData.name}
           onChange={handleChange}
         />
-      </div>
-      <div>
-        <label htmlFor="checkIn">Check-in:</label>
-        <input
-          type="date"
-          id="checkIn"
-          name="checkIn"
-          value={getFormattedDate(new Date(formData.checkIn))}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="checkOut">Check-out:</label>
-        <input
-          type="date"
-          id="checkOut"
-          name="checkOut"
-          value={getFormattedDate(new Date(formData.checkOut))}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="message">Message:</label>
-        <input
-          type="text"
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <h1>{bookingId ? "Edit Booking" : "New Booking"}</h1>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+      </div> */}
+        <div>
+          <label htmlFor="checkIn">Check-in:</label>
+          <input
+            type="date"
+            id="checkIn"
+            name="checkIn"
+            value={getFormattedDate(new Date(formData.checkIn))}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="checkOut">Check-out:</label>
+          <input
+            type="date"
+            id="checkOut"
+            name="checkOut"
+            value={getFormattedDate(new Date(formData.checkOut))}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="message">Leave A Message For Your Host:</label>
+          <input
+            type="text"
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+          />
+        </div>
+        <div></div>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
   );
 };
 

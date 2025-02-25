@@ -1,3 +1,4 @@
+import "./BookingDetails.css";
 import { useParams, Link } from "react-router";
 import { useState, useEffect } from "react";
 
@@ -13,16 +14,11 @@ const BookingDetails = (props) => {
         const bookingData = await bookingService.show(bookingId);
         setBooking(bookingData);
       } catch (err) {
-        console.log(err.message, "<----error!");
+        console.log(err.message);
       }
     };
     fetchBooking();
   }, [bookingId]);
-
-  console.log("bookingId", bookingId);
-  // console.log(booking.renter._id, "renter ID");
-
-  if (!booking) return <main>Loading...</main>;
 
   function getFormattedDate(date) {
     var year = date.getFullYear();
@@ -41,10 +37,17 @@ const BookingDetails = (props) => {
     <main>
       <section>
         <header>
-          <h1>Check-in: {getFormattedDate(new Date(booking.checkIn))}</h1>
-          <h1>Check-out: {getFormattedDate(new Date(booking.checkOut))}</h1>
-          Message: {booking.message ? <p>{booking.message}</p> : null}
-          <p>Rental Information {booking.rental.padOwner}</p>
+          {/* <p>Name: {booking.name.toUpperCase()}</p> */}
+          <h1>Rental for {booking.rental.name} </h1>
+          <p>Check-in: {getFormattedDate(new Date(booking.checkIn))}</p>
+          <p>Check-out: {getFormattedDate(new Date(booking.checkOut))}</p>
+          <p>Rental Informtion: </p>
+          <p>Host {booking.rental.padOwner}</p>
+          <p>
+            {" "}
+            {booking.rental.typeOfRental} located in {booking.rental.location}
+          </p>
+          {booking.message ? <p> Message for host: {booking.message}</p> : null}
         </header>
         <button>
           {" "}
