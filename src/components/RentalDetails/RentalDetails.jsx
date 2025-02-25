@@ -1,3 +1,4 @@
+import "./RentalDetails.css";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import * as rentalService from "../../services/rentalService";
@@ -7,7 +8,7 @@ import { Link } from "react-router";
 import BookingForm from "../BookingForm/BookingForm.jsx";
 
 const RentalDetails = (props) => {
-  const { rentalId, reviewId } = useParams();
+  const { rentalId } = useParams();
 
   const [rental, setRental] = useState(null);
   const [showForm, setShowForm] = useState(false);
@@ -20,9 +21,6 @@ const RentalDetails = (props) => {
     fetchRental();
   }, [rentalId]);
 
-  // booking id has to come from the details page, passed as prop
-  //need to add rentalID!!
-  // wil lthis run if i leave it here or does this functi0on need to be in details page?
   const handleAddReview = async (reviewFormData, rentalId) => {
     const newReview = await reviewService.createReview(
       rentalId,
@@ -62,15 +60,18 @@ const RentalDetails = (props) => {
           <h1>{rental.name}</h1>
         </header>
         <p>{rental.photo}</p>
-        <p>{rental.location}</p>
-        <p>{rental.typeOfRental}</p>
         <p>
-          {rental.padOwner}
-          ------- we need to change this !
+          A wonderful {rental.typeOfRental} located at {rental.location}
         </p>
+        {/* <p>{rental.typeOfRental}</p> */}
+        <p>Rental owner {rental.padOwner}</p>
         <button onClick={() => setShowForm(true)}>Book Your Stay Here!</button>
-        {showForm && <BookingForm handleAddBooking={props.handleAddBooking} rentalId={rental._id} />}
-        {/* <button onClick={passId()} ><Link to='/bookings/new'>Book Your Stay Here!</Link></button> */}
+        {showForm && (
+          <BookingForm
+            handleAddBooking={props.handleAddBooking}
+            rentalId={rental._id}
+          />
+        )}{" "}
       </section>
       <section>
         <h2>Reviews:</h2>
@@ -87,8 +88,6 @@ const RentalDetails = (props) => {
             </p>
             <p>ID: {review._id}</p>
             <p>{review.text}</p>
-            {/* {reviewId ? <ReviewForm /> : null} */}
-
             <button>
               <Link to={`/rentals/${rental._id}/reviews/${review._id}/edit`}>
                 {" "}

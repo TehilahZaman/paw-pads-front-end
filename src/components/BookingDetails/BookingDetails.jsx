@@ -13,16 +13,11 @@ const BookingDetails = (props) => {
         const bookingData = await bookingService.show(bookingId);
         setBooking(bookingData);
       } catch (err) {
-        console.log(err.message, "<----error!");
+        console.log(err.message);
       }
     };
     fetchBooking();
   }, [bookingId]);
-
-  console.log("bookingId", bookingId);
-  // console.log(booking.renter._id, "renter ID");
-
-  if (!booking) return <main>Loading...</main>;
 
   function getFormattedDate(date) {
     var year = date.getFullYear();
