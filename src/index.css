@@ -15,6 +15,7 @@ body {
   /* Ensures full height compatibility across devices */
   min-height: 100dvh;
   margin: 0;
+
 }
 
 button {
