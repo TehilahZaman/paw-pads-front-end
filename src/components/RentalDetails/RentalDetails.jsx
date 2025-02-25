@@ -45,10 +45,10 @@ const RentalDetails = (props) => {
       formData
     );
     setRental({
-      reviews: [
-        ...rental.reviews.filter((review) => review._id !== reviewId),
-        updatedReview,
-      ],
+      ...rental,
+      reviews: rental.reviews.map((review) =>
+        review._id === reviewId ? updatedReview : review
+      ),
     });
   };
 
@@ -59,7 +59,12 @@ const RentalDetails = (props) => {
         <header>
           <h1>{rental.name}</h1>
         </header>
-        <img src={`${rental.photo}`} alt="photos of rentals" height="300" width="300" />
+        <img
+          src={`${rental.photo}`}
+          alt="photos of rentals"
+          height="300"
+          width="300"
+        />
         <p>
           A wonderful {rental.typeOfRental} located at {rental.location}
         </p>
