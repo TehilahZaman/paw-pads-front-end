@@ -1,5 +1,5 @@
 // in rental details page:
-import "../ReviewForm/ReviewForm.css";
+import "./ReviewForm.css";
 // <ReviewForm handleAddReview={handleAddReview}/>
 
 import { useState, useEffect } from "react";
