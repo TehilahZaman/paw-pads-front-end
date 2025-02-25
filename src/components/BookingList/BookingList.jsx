@@ -1,15 +1,9 @@
 import { Link } from "react-router";
 import { useEffect } from "react";
 
-
 import * as bookingService from "../../services/bookingService";
 
 const BookingList = (props) => {
-  console.log(props);
-  // const [bookings, setBookings] = useState([]);
-
-  //   console.log(localStorage.getItem("token"));
-  // console.log(bookings);
   useEffect(() => {
     const fetchAllBookings = async () => {
       try {
@@ -18,7 +12,7 @@ const BookingList = (props) => {
         console.log("bookingsData", bookingsData);
         props.setBookings(bookingsData);
       } catch (err) {
-        console.log(err.message, "<----error!");
+        console.log(err.message);
       }
     };
     fetchAllBookings();
@@ -27,9 +21,7 @@ const BookingList = (props) => {
   return (
     <main>
       {!props.bookings.length ? <p>There are no bookings.</p> : null}
-      {/* added: if booking doesn't exist ... */}
       {props.bookings.map((booking) => (
-        //  changed {} to ()
         <Link key={booking._id} to={`/bookings/${booking._id}`}>
           <article>
             <header>
