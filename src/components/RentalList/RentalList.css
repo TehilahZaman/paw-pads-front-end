@@ -1,9 +1,9 @@
 /*  if this is to be white- 
 we could just make the background white  */
-
-
-h2 {
-  /* font-size: x-large; */
+ h2 {
+  font-size:x-large;
+  text-decoration: underline;
+  text-align: left;
   margin-left: 100px;
 
 .rental {
@@ -42,6 +42,6 @@ h2 {
 
 .rental-list li {
   padding: 20px;
-  /* border: solid black;
-  border-radius: 5px; */
+  border: solid black;
+  border-radius: 5px;
 }

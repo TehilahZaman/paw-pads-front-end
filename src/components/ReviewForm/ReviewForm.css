@@ -1,6 +1,6 @@
-h1 {
+/* h1 {
   text-align: center;
-}
+} */
 .review-form {
   display: flex;
   flex-direction: column;
@@ -15,8 +15,8 @@ div {
   padding: 10px;
 }
 
-.review-form button {
-  padding: 8px;
-  border-radius: 12px;
-  cursor: pointer;
-}
+/* .review-form button {
+  /* padding: 8px;
+  border-radius: 12px; */
+  /* cursor: pointer; */
+/* } */ 
