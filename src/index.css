@@ -5,7 +5,7 @@
 :root {
   --main-bg-color: rgb(255, 255, 255);
   --black: #030303;
-  --red: #e12e02;
+  --green: #1EC337;
 }
 
 body {
@@ -16,3 +16,8 @@ body {
   min-height: 100dvh;
   margin: 0;
 
+}
+
+button {
+  
+}
