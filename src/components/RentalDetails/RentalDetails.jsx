@@ -59,7 +59,7 @@ const RentalDetails = (props) => {
         <header>
           <h1>{rental.name}</h1>
         </header>
-        <p>{rental.photo}</p>
+        <img src={`${rental.photo}`} alt="photos of rentals" height="300" width="300" />
         <p>
           A wonderful {rental.typeOfRental} located at {rental.location}
         </p>

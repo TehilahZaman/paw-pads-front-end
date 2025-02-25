@@ -5,6 +5,7 @@ import { Link } from "react-router";
 export default function RentalList(props) {
   const rentalLis = props.rentals.map((rental) => (
     <li key={rental._id}>
+      <img src={`${rental.photo}`} alt="photos of rentals properties" height="200" width="200" />
       <Link to={`/rentals/${rental._id}`}>{rental.name}</Link>
     </li>
   ));
