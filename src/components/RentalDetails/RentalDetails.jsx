@@ -1,13 +1,15 @@
 import "./RentalDetails.css";
 import { useParams } from "react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import * as rentalService from "../../services/rentalService";
 import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../ReviewForm/ReviewForm.jsx";
 import { Link } from "react-router";
 import BookingForm from "../BookingForm/BookingForm.jsx";
+import { UserContext } from "../../contexts/UserContext";
 
 const RentalDetails = (props) => {
+  const { user } = useContext(UserContext);
   const { rentalId } = useParams();
 
   const [rental, setRental] = useState(null);
@@ -35,7 +37,6 @@ const RentalDetails = (props) => {
       ...rental,
       reviews: rental.reviews.filter((review) => review._id !== reviewId),
     });
-    props.setRentals([...props.rentals, rental]);
   };
 
   const handleUpdate = async (rentalId, reviewId, formData) => {
@@ -55,7 +56,7 @@ const RentalDetails = (props) => {
   if (!rental) return;
   return (
     <main>
-      <section>
+      <section className="rental-section">
         <header>
           <h1>{rental.name}</h1>
         </header>
@@ -66,7 +67,7 @@ const RentalDetails = (props) => {
           width="300"
         />
         <p>
-          A wonderful {rental.typeOfRental} located at {rental.location}
+          A wonderful {rental.typeOfRental} located in {rental.location}
         </p>
         {/* <p>{rental.typeOfRental}</p> */}
         <p>Rental owner {rental.padOwner}</p>
@@ -78,7 +79,7 @@ const RentalDetails = (props) => {
           />
         )}{" "}
       </section>
-      <section>
+      <section className="review-section">
         <h2>Reviews:</h2>
 
         {!rental.reviews.length && <p>There are no reviews.</p>}
@@ -86,18 +87,25 @@ const RentalDetails = (props) => {
           <article key={review._id} className="review">
             <p className="review-header">{review.userName} posted</p>
             <p>{review.text}</p>
-            <button className="edit-button">
-              <Link to={`/rentals/${rental._id}/reviews/${review._id}/edit`}>
-                {" "}
-                Edit{" "}
-              </Link>
-            </button>
-            <button
-              className="delete-button"
-              onClick={() => handleDelete(review._id)}
-            >
-              Delete
-            </button>
+
+            {user._id === review.author ? (
+              <div>
+                <button className="edit-button">
+                  <Link
+                    to={`/rentals/${rental._id}/reviews/${review._id}/edit`}
+                  >
+                    {" "}
+                    Edit{" "}
+                  </Link>
+                </button>
+                <button
+                  className="delete-button"
+                  onClick={() => handleDelete(review._id)}
+                >
+                  Delete
+                </button>
+              </div>
+            ) : null}
           </article>
         ))}
         <ReviewForm
