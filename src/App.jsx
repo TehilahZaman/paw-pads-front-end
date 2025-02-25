@@ -55,7 +55,7 @@ const App = () => {
 
   const handleAddBooking = async (formData, rentalId) => {
     console.log("bookingFormData", formData);
-    const newBooking = await bookingService.addBooking(formData);
+    const newBooking = await bookingService.addBooking(formData, rentalId);
     setBookings([...bookings, newBooking]);
     navigate("/bookings");
   };
@@ -70,7 +70,6 @@ const App = () => {
         bookingId === booking._id ? updatedBooking : booking
       );
       navigate(`/bookings/${bookingId}`);
-      // here was the extra }
     } catch (err) {
       console.log(err.message, "<----error!");
     }
@@ -112,7 +111,7 @@ const App = () => {
         <Route path="/rentals" element={<RentalList rentals={rentals} />} />
         <Route
           path="/rentals/:rentalId"
-          element={<RentalDetails rentals={rentals} setRentals={setRentals} />}
+          element={<RentalDetails rentals={rentals} setRentals={setRentals} handleAddBooking={handleAddBooking} />}
         />
         <Route
           path="/rentals/:rentalId/reviews/:reviewId/edit"

@@ -4,11 +4,13 @@ import * as rentalService from "../../services/rentalService";
 import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../ReviewForm/ReviewForm.jsx";
 import { Link } from "react-router";
+import BookingForm from "../BookingForm/BookingForm.jsx";
 
 const RentalDetails = (props) => {
   const { rentalId, reviewId } = useParams();
 
   const [rental, setRental] = useState(null);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const fetchRental = async () => {
@@ -66,7 +68,9 @@ const RentalDetails = (props) => {
           {rental.padOwner}
           ------- we need to change this !
         </p>
-        <button>Booking button TB added</button>
+        <button onClick={() => setShowForm(true)}>Book Your Stay Here!</button>
+        {showForm && <BookingForm handleAddBooking={props.handleAddBooking} rentalId={rental._id} />}
+        {/* <button onClick={passId()} ><Link to='/bookings/new'>Book Your Stay Here!</Link></button> */}
       </section>
       <section>
         <h2>Reviews:</h2>
