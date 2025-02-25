@@ -1,7 +1,7 @@
 // src/components/Dashboard/Dashboard.jsx
+import "../Dashboard/Dashboard.css";
 
 // Leah is working here =====
-
 
 import { useEffect, useContext } from "react";
 
@@ -32,9 +32,7 @@ const Dashboard = () => {
   return (
     <main>
       <h1>Welcome, {user.username}</h1>
-      <p>
-        This is the dashboard page.
-      </p>
+      <p>This is the dashboard page.</p>
     </main>
   );
 };
