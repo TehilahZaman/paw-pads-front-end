@@ -4,7 +4,8 @@ we could just make the background white  */
   font-size:x-large;
   text-decoration: underline;
   text-align: left;
-  margin-left: 100px;
+  margin-left: 100
+ }
 
 .rental {
   display: flex;
