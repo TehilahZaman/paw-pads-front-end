@@ -1,8 +1,6 @@
+.msg {
+  text-align: center;
+}
 Link {
   color: black;
-}
-
-div {
-  display: flex;
-  align-items: column;
 }

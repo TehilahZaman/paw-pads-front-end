@@ -10,6 +10,7 @@
 
 body {
   background-color: #18922B;
+
   /* Use a system font; if none are available, use an available sans-serif font */
   font-family: 'Times New Roman', Times, serif;
   /* Ensures full height compatibility across devices */
