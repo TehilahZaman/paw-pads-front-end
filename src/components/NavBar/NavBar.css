@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+}
+
+.nav li {
+  list-style: none;
+  padding: 5px;
+}
+
+/*  not working */
+.nav Link {
+  text-decoration: none;
+}

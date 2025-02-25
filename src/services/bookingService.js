@@ -1,5 +1,4 @@
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/bookings`;
-//T: added /users
 
 const index = async () => {
   try {
@@ -14,7 +13,7 @@ const index = async () => {
     }
     return data;
   } catch (error) {
-    console.log(error, '<--this is the error');
+    console.log(error, "<--this is the error");
     throw new Error(error);
   }
 };
@@ -30,9 +29,9 @@ const show = async (bookingId) => {
   }
 };
 
-const addBooking = async (formData) => {
+const addBooking = async (formData, rentalId) => {
   try {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(`${BASE_URL}/${rentalId}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -40,11 +39,42 @@ const addBooking = async (formData) => {
       },
       body: JSON.stringify(formData),
     });
-    console.log(res);
     return res.json();
   } catch (error) {
     console.log(error);
   }
 };
 
-export { index, show, addBooking };
+const updateBooking = async (bookingId, bookingFormData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${bookingId}`, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookingFormData),
+    });
+
+    const data = res.json();
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const deleteBooking = async (bookingId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${bookingId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    return res.json();
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { index, show, addBooking, updateBooking, deleteBooking };

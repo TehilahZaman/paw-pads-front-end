@@ -1,14 +1,17 @@
+import "./RentalDetails.css";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import * as rentalService from "../../services/rentalService";
 import * as reviewService from "../../services/reviewService";
 import ReviewForm from "../ReviewForm/ReviewForm.jsx";
 import { Link } from "react-router";
+import BookingForm from "../BookingForm/BookingForm.jsx";
 
 const RentalDetails = (props) => {
-  const { rentalId, reviewId } = useParams();
+  const { rentalId } = useParams();
 
   const [rental, setRental] = useState(null);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const fetchRental = async () => {
@@ -18,9 +21,6 @@ const RentalDetails = (props) => {
     fetchRental();
   }, [rentalId]);
 
-  // booking id has to come from the details page, passed as prop
-  //need to add rentalID!!
-  // wil lthis run if i leave it here or does this functi0on need to be in details page?
   const handleAddReview = async (reviewFormData, rentalId) => {
     const newReview = await reviewService.createReview(
       rentalId,
@@ -59,39 +59,40 @@ const RentalDetails = (props) => {
         <header>
           <h1>{rental.name}</h1>
         </header>
-        <p>{rental.photo}</p>
-        <p>{rental.location}</p>
-        <p>{rental.typeOfRental}</p>
+        <img src={`${rental.photo}`} alt="photos of rentals" height="300" width="300" />
         <p>
-          {rental.padOwner}
-          ------- we need to change this !
+          A wonderful {rental.typeOfRental} located at {rental.location}
         </p>
-        <button>Booking button TB added</button>
+        {/* <p>{rental.typeOfRental}</p> */}
+        <p>Rental owner {rental.padOwner}</p>
+        <button onClick={() => setShowForm(true)}>Book Your Stay Here!</button>
+        {showForm && (
+          <BookingForm
+            handleAddBooking={props.handleAddBooking}
+            rentalId={rental._id}
+          />
+        )}{" "}
       </section>
       <section>
         <h2>Reviews:</h2>
 
         {!rental.reviews.length && <p>There are no reviews.</p>}
-
         {rental.reviews.map((review) => (
-          <article key={review._id}>
-            <p>
-              {`${review.userName} post on
-                             ${new Date(
-                               review.createdAt
-                             ).toLocaleDateString()}`}
-            </p>
-            <p>ID: {review._id}</p>
+          <article key={review._id} className="review">
+            <p className="review-header">{review.userName} posted</p>
             <p>{review.text}</p>
-            {/* {reviewId ? <ReviewForm /> : null} */}
-
-            <button>
+            <button className="edit-button">
               <Link to={`/rentals/${rental._id}/reviews/${review._id}/edit`}>
                 {" "}
                 Edit{" "}
               </Link>
             </button>
-            <button onClick={() => handleDelete(review._id)}>Delete</button>
+            <button
+              className="delete-button"
+              onClick={() => handleDelete(review._id)}
+            >
+              Delete
+            </button>
           </article>
         ))}
         <ReviewForm

@@ -1,8 +1,17 @@
+/*  if this is to be white- 
+we could just make the background white  */
 .rental-list {
-    background-color: var(--main-bg-color);
-    color: var(--black);
+  background-color: var(--main-bg-color);
+  color: var(--black);
 }
 
 .rental-list ul {
-    list-style: square;
+  /* list-style: square; */
+  list-style: none;
+}
+
+.rental-list li {
+  padding: 10px;
+  border: solid black;
+  border-radius: 5px;
 }

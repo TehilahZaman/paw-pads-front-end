@@ -1,7 +1,7 @@
 // src/components/Dashboard/Dashboard.jsx
+import "../Dashboard/Dashboard.css";
 
 // Leah is working here =====
-
 
 import { useEffect, useContext } from "react";
 
@@ -13,10 +13,6 @@ const Dashboard = () => {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    // THIS IS AN EXAMPLE OF AN API CALL
-    // AFTER YOU ARE LOGGED IN, PLEASE LOOK AT THE USERSERVICE
-    // HEADERS FOR SENDING THE JWT TOKEN OVER
-
     const fetchUsers = async () => {
       try {
         const fetchedUsers = await userService.index();
@@ -31,10 +27,8 @@ const Dashboard = () => {
 
   return (
     <main>
-      <h1>Welcome, {user.username}</h1>
-      <p>
-        This is the dashboard page.
-      </p>
+      <h1>Welcome to Paw Pads, {user.username}</h1>
+      <p>Find a purr-fect rental for your pet today!</p>
     </main>
   );
 };
