@@ -1,9 +1,12 @@
 /*  if this is to be white- 
 we could just make the background white  */
-h1, h2 {
-  font-size:x-large;
-  text-decoration: underline;
-  text-align: left;
+
+.rental-list h1 {
+  text-align: center;
+}
+
+h2 {
+  /* font-size: x-large; */
   margin-left: 100px;
 }
 
@@ -19,7 +22,7 @@ h1, h2 {
 
 .rental-photo {
   width: 250px;
-  height:230px;
+  height: 230px;
   margin-left: 0px;
   margin-top: 20px;
 }
