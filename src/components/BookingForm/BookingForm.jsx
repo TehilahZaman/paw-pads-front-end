@@ -36,14 +36,15 @@ const BookingForm = (props) => {
       [name]: value,
     });
   };
-
+  
   const handleSubmit = (evt) => {
     evt.preventDefault(), console.log("Form Data Submitted", formData);
     if (bookingId) {
       props.handleUpdateBooking(bookingId, formData);
     } else {
-      props.handleAddBooking(formData);
+      props.handleAddBooking(formData, props.rentalId);
     }
+
   };
 
   function getFormattedDate(date) {

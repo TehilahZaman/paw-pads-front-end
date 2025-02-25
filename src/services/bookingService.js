@@ -30,9 +30,9 @@ const show = async (bookingId) => {
   }
 };
 
-const addBooking = async (formData) => {
+const addBooking = async (formData, rentalId) => {
   try {
-    const res = await fetch(`${BASE_URL}`, {
+    const res = await fetch(`${BASE_URL}/${rentalId}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
