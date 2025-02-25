@@ -60,7 +60,7 @@ const SignUpForm = () => {
         <main>
             <h1>Sign Up</h1>
             <p>{message}</p>
-            <form onSubmit={handleSubmit} className="form">
+            <form onSubmit={handleSubmit} className="sign-form">
                 <div>
                     <label htmlFor='username'>Username:</label>
                     <input
