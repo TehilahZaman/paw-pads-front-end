@@ -10,7 +10,7 @@ const formattedDate = date.toLocaleDateString("en-US");
 console.log(formattedDate);
 
 const initialState = {
-  name: "",
+//   name: "",
   checkIn: formattedDate,
   checkOut: formattedDate,
   message: "",
