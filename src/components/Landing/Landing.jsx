@@ -1,5 +1,5 @@
 // src/components/Landing.jsx
-import "../Landing/Landing.css";
+import "./Landing.css";
 
 const Landing = () => {
   return (
