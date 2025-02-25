@@ -26,7 +26,6 @@ const NavBar = () => {
       {user ? (
         <ul className="nav">
           <li>Welcome, {user.username}</li>
-          {/* The new link */}
 
           <li>
             <Link to="/">Dashboard</Link>
@@ -34,23 +33,20 @@ const NavBar = () => {
           <li>
             <Link to="/rentals">Rental List</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/bookings/new">Book a Pad</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/bookings">Your Bookings</Link>
           </li>
-          {/* <li><Link to='/users/book'>Book</Link></li> */}
           <li>
             <Link to="/" onClick={handleSignOut}>
               Sign Out
             </Link>
           </li>
-          {/* <li><Link to='/bookings'>Bookings</Link></li> */}
         </ul>
       ) : (
         <ul className="nav">
-          {/* Another new link */}
           <li>
             <Link to="/">Home</Link>
           </li>
