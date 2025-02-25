@@ -1,5 +1,5 @@
 // practice making a form in react
-import "./BookingForm/BookingForm.css";
+import "./BookingForm.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 

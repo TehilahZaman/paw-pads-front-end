@@ -1,5 +1,5 @@
 // src/components/Dashboard/Dashboard.jsx
-import "./Dashboard/Dashboard.css";
+import "./Dashboard.css";
 
 // Leah is working here =====
 
