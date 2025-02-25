@@ -41,10 +41,10 @@ const BookingDetails = (props) => {
     <main>
       <section>
         <header>
-          <p>Name: {booking.name.toUpperCase()}</p>
           <h1>Check-in: {getFormattedDate(new Date(booking.checkIn))}</h1>
           <h1>Check-out: {getFormattedDate(new Date(booking.checkOut))}</h1>
           Message: {booking.message ? <p>{booking.message}</p> : null}
+          <p>Rental Information {booking.rental.padOwner}</p>
         </header>
         <button>
           {" "}
