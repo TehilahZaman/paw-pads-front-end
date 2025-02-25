@@ -4,19 +4,17 @@ import { useEffect } from "react";
 import * as bookingService from "../../services/bookingService";
 
 const BookingList = (props) => {
-    // const [bookings, setBookings] = useState([]);
-
-    //   console.log(localStorage.getItem("token"));
-    // console.log(bookings);
-    useEffect(() => {
-        const fetchAllBookings = async (props) => {
-            try {
-      console.log("the fetch function was called ");
-            const bookingsData = await bookingService.index();
-            console.log("bookingsData", bookingsData);
-            props.setBookings(bookingsData);
-          } catch(err){
-          console.log(err.message, '<----error!')
+  console.log(props);
+  // const [bookings, setBookings] = useState([]);
+  useEffect(() => {
+    const fetchAllBookings = async () => {
+      try {
+        console.log("the fetch function was called ");
+        const bookingsData = await bookingService.index();
+        console.log("bookingsData", bookingsData);
+        props.setBookings(bookingsData);
+      } catch (err) {
+        console.log(err.message, "<----error!");
       }
     };
         fetchAllBookings();
