@@ -1,9 +1,33 @@
 /*  if this is to be white- 
 we could just make the background white  */
-.rental-list {
+h1, h2 {
+  font-size:x-large;
+  text-decoration: underline;
+  text-align: left;
+  margin-left: 100px;
+}
+
+.rental {
+  display: flex;
+  flex-direction: column;
+  height: 265px;
+  font-size: x-large;
+  text-decoration: none;
+  margin-left: 38px;
+  margin-bottom: 100px;
+}
+
+.rental-photo {
+  width: 250px;
+  height:230px;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+/* .rental-list {
   background-color: var(--main-bg-color);
   color: var(--black);
-}
+} */
 
 .rental-list ul {
   /* list-style: square; */
@@ -11,7 +35,7 @@ we could just make the background white  */
 }
 
 .rental-list li {
-  padding: 10px;
-  border: solid black;
-  border-radius: 5px;
+  padding: 20px;
+  /* border: solid black;
+  border-radius: 5px; */
 }

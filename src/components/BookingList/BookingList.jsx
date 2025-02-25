@@ -1,3 +1,4 @@
+import "./BookingList.css";
 import { Link } from "react-router";
 import { useEffect } from "react";
 
@@ -18,17 +19,28 @@ const BookingList = (props) => {
     fetchAllBookings();
   }, []);
 
+  const style1 = { textDecoration: "none", color: "black" };
   return (
     <main>
-      {!props.bookings.length ? <p>There are no bookings.</p> : null}
+      {!props.bookings.length ? (
+        <p>There are no bookings.</p>
+      ) : (
+        <h1>Here are your bookings!</h1>
+      )}
       {props.bookings.map((booking) => (
-        <Link key={booking._id} to={`/bookings/${booking._id}`}>
-          <article>
+        <div key={booking._id}>
+          <img
+            src={`${booking.rental.photo}`}
+            alt="photos of rentals"
+            height="200"
+            width="200"
+          />
+          <Link to={`/bookings/${booking._id}`} style={{ ...style1 }}>
             <header>
               <h2>Booking for {booking.rental.name}</h2>
             </header>
-          </article>
-        </Link>
+          </Link>
+        </div>
       ))}
     </main>
   );
