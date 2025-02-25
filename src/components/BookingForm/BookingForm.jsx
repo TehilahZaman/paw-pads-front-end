@@ -60,7 +60,7 @@ const BookingForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      {/* <div>
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -69,7 +69,7 @@ const BookingForm = (props) => {
           value={formData.name}
           onChange={handleChange}
         />
-      </div>
+      </div> */}
       <div>
         <label htmlFor="checkIn">Check-in:</label>
         <input
