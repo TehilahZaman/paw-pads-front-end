@@ -44,8 +44,8 @@ export default function ReviewForm(props) {
 
   return (
     <section>
-      <h2>Leave a review!</h2>
-      <form onSubmit={handleSubmit} className="form">
+      <h2>{reviewId ? "Update your Review!" : "Leave a review!"}</h2>
+      <form onSubmit={handleSubmit} className="review-form">
         {/* <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -54,14 +54,16 @@ export default function ReviewForm(props) {
           value={formData.name}
           onChange={handleChange}
         /> */}
-        <label htmlFor="text">Review</label>
+        <div> 
+          <label htmlFor="text">Review: {" "}</label>
         <input
           type="text"
           name="text"
           id="text"
           value={formData.text}
           onChange={handleChange}
-        />
+          />
+          </div>
         <button type="submit">{reviewId ? "Update" : "Create"}</button>
       </form>
     </section>
