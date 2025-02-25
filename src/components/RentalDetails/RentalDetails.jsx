@@ -35,7 +35,6 @@ const RentalDetails = (props) => {
       ...rental,
       reviews: rental.reviews.filter((review) => review._id !== reviewId),
     });
-    props.setRentals([...props.rentals, rental]);
   };
 
   const handleUpdate = async (rentalId, reviewId, formData) => {
@@ -66,7 +65,7 @@ const RentalDetails = (props) => {
           width="300"
         />
         <p>
-          A wonderful {rental.typeOfRental} located at {rental.location}
+          A wonderful {rental.typeOfRental} located in {rental.location}
         </p>
         {/* <p>{rental.typeOfRental}</p> */}
         <p>Rental owner {rental.padOwner}</p>
