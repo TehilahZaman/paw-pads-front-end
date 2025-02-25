@@ -53,9 +53,9 @@ const App = () => {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleAddBooking = async (formData) => {
+  const handleAddBooking = async (formData, rentalId) => {
     console.log("bookingFormData", formData);
-    const newBooking = await bookingService.addBooking(formData);
+    const newBooking = await bookingService.addBooking(formData, rentalId);
     setBookings([...bookings, newBooking]);
     navigate("/bookings");
   };
@@ -112,7 +112,7 @@ const App = () => {
         <Route path="/rentals" element={<RentalList rentals={rentals} />} />
         <Route
           path="/rentals/:rentalId"
-          element={<RentalDetails rentals={rentals} setRentals={setRentals} />}
+          element={<RentalDetails rentals={rentals} setRentals={setRentals} handleAddBooking={handleAddBooking} />}
         />
         <Route
           path="/rentals/:rentalId/reviews/:reviewId/edit"
