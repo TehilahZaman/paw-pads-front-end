@@ -25,7 +25,7 @@ const BookingList = (props) => {
         <Link key={booking._id} to={`/bookings/${booking._id}`}>
           <article>
             <header>
-              <h2>Booking for {booking.name}</h2>
+              <h2>Booking for {booking.rental.name}</h2>
             </header>
           </article>
         </Link>
