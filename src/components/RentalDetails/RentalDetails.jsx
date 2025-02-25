@@ -77,24 +77,22 @@ const RentalDetails = (props) => {
         <h2>Reviews:</h2>
 
         {!rental.reviews.length && <p>There are no reviews.</p>}
-
         {rental.reviews.map((review) => (
-          <article key={review._id}>
-            <p>
-              {`${review.userName} post on
-                             ${new Date(
-                               review.createdAt
-                             ).toLocaleDateString()}`}
-            </p>
-            <p>ID: {review._id}</p>
+          <article key={review._id} className="review">
+            <p className="review-header">{review.userName} posted</p>
             <p>{review.text}</p>
-            <button>
+            <button className="edit-button">
               <Link to={`/rentals/${rental._id}/reviews/${review._id}/edit`}>
                 {" "}
                 Edit{" "}
               </Link>
             </button>
-            <button onClick={() => handleDelete(review._id)}>Delete</button>
+            <button
+              className="delete-button"
+              onClick={() => handleDelete(review._id)}
+            >
+              Delete
+            </button>
           </article>
         ))}
         <ReviewForm

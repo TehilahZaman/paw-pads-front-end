@@ -93,7 +93,7 @@ const BookingForm = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="message">Message:</label>
+          <label htmlFor="message">Leave A Message For Your Host:</label>
           <input
             type="text"
             id="message"
