@@ -35,7 +35,6 @@ const RentalDetails = (props) => {
       ...rental,
       reviews: rental.reviews.filter((review) => review._id !== reviewId),
     });
-    props.setRentals([...props.rentals, rental]);
   };
 
   const handleUpdate = async (rentalId, reviewId, formData) => {
@@ -45,10 +44,10 @@ const RentalDetails = (props) => {
       formData
     );
     setRental({
-      reviews: [
-        rental.reviews.filter((review) => review._id !== reviewId),
-        updatedReview,
-      ],
+      ...rental,
+      reviews: rental.reviews.map((review) =>
+        review._id === reviewId ? updatedReview : review
+      ),
     });
   };
 
@@ -59,9 +58,14 @@ const RentalDetails = (props) => {
         <header>
           <h1>{rental.name}</h1>
         </header>
-        <img src={`${rental.photo}`} alt="photos of rentals" height="300" width="300" />
+        <img
+          src={`${rental.photo}`}
+          alt="photos of rentals"
+          height="300"
+          width="300"
+        />
         <p>
-          A wonderful {rental.typeOfRental} located at {rental.location}
+          A wonderful {rental.typeOfRental} located in {rental.location}
         </p>
         {/* <p>{rental.typeOfRental}</p> */}
         <p>Rental owner {rental.padOwner}</p>
