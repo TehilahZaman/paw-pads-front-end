@@ -23,24 +23,20 @@ const BookingList = (props) => {
   return (
     <main>
       {!props.bookings.length ? (
-        <p>There are no bookings.</p>
+        <p className="msg">There are no bookings.</p>
       ) : (
-        <h1>Here are your bookings!</h1>
+        <h1 className="msg">Here are your bookings!</h1>
       )}
       {props.bookings.map((booking) => (
-        <div key={booking._id}>
-          <img
-            src={`${booking.rental.photo}`}
-            alt="photos of rentals"
-            height="200"
-            width="200"
-          />
-          <Link to={`/bookings/${booking._id}`} style={{ ...style1 }}>
-            <header>
-              <h2>Booking for {booking.rental.name}</h2>
-            </header>
-          </Link>
-        </div>
+        <Link
+          key={booking._id}
+          to={`/bookings/${booking._id}`}
+          style={{ ...style1 }}
+        >
+          <header>
+            <h2>Booking for {booking.rental.name}</h2>
+          </header>
+        </Link>
       ))}
     </main>
   );
