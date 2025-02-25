@@ -1,5 +1,5 @@
 // practice making a form in react
-
+import "../BookingForm/BookingForm.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
@@ -36,7 +36,7 @@ const BookingForm = (props) => {
       [name]: value,
     });
   };
-  
+
   const handleSubmit = (evt) => {
     evt.preventDefault(), console.log("Form Data Submitted", formData);
     if (bookingId) {
@@ -44,7 +44,6 @@ const BookingForm = (props) => {
     } else {
       props.handleAddBooking(formData, props.rentalId);
     }
-
   };
 
   function getFormattedDate(date) {
@@ -60,7 +59,7 @@ const BookingForm = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
       {/* <div>
         <label htmlFor="name">Name:</label>
         <input
