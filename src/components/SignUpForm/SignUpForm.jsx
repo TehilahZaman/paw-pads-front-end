@@ -1,5 +1,5 @@
 // SignUpForm.jsx
-
+import "../SignUpForm/SignUpForm.css"
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
 
@@ -60,7 +60,7 @@ const SignUpForm = () => {
         <main>
             <h1>Sign Up</h1>
             <p>{message}</p>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="form">
                 <div>
                     <label htmlFor='username'>Username:</label>
                     <input
