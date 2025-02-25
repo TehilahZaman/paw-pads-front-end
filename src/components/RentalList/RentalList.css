@@ -7,6 +7,23 @@ h1, h2 {
   margin-left: 100px;
 }
 
+.rental {
+  display: flex;
+  flex-direction: column;
+  height: 265px;
+  font-size: x-large;
+  text-decoration: none;
+  margin-left: 38px;
+  margin-bottom: 100px;
+}
+
+.rental-photo {
+  width: 250px;
+  height:230px;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
 /* .rental-list {
   background-color: var(--main-bg-color);
   color: var(--black);
