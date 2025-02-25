@@ -46,7 +46,7 @@ const RentalDetails = (props) => {
     );
     setRental({
       reviews: [
-        rental.reviews.filter((review) => review._id !== reviewId),
+        ...rental.reviews.filter((review) => review._id !== reviewId),
         updatedReview,
       ],
     });
