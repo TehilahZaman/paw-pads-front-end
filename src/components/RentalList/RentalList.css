@@ -1,18 +1,10 @@
 /*  if this is to be white- 
 we could just make the background white  */
 
-h1, h2 {
-  color: rgb(254, 254, 0);
-  display: flex;
-  font-size:x-large;
-  text-decoration: underline;
-  justify-content: center;
-  align-items: center;
-}
 
-body {
-  background-color:#18922B;
-}
+h2 {
+  /* font-size: x-large; */
+  margin-left: 100px;
 
 .rental {
   display: flex;

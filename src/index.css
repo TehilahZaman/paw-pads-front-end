@@ -5,19 +5,14 @@
 :root {
   --main-bg-color: rgb(255, 255, 255);
   --black: #030303;
-  --green: #1EC337;
+  --green: #1ec337;
 }
 
 body {
-  background-color: white;
+  background-color: #18922b;
   /* Use a system font; if none are available, use an available sans-serif font */
   font-family: system-ui, sans-serif;
   /* Ensures full height compatibility across devices */
   min-height: 100dvh;
   margin: 0;
-
-}
-
-button {
-  
 }
