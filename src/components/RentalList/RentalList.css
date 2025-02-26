@@ -1,11 +1,9 @@
-/*  if this is to be white- 
-we could just make the background white  */
-h2 {
+/* h2 {
   font-size: x-large;
-  text-decoration: underline;
-  text-align: left;
-  margin-left: 100px;
-}
+ text-decoration: underline; 
+  text-align: left; 
+  margin-left: 100px; 
+} */
 
 .rental {
   display: flex;
