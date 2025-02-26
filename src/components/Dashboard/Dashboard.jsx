@@ -28,7 +28,7 @@ const Dashboard = () => {
   return (
     <main>
       <h1>Welcome to Paw Pads, {user.username}</h1>
-      <p>Find a purr-fect rental for your pet today!</p>
+      <h2>Find a purr-fect rental for you and your pet today!</h2>
     </main>
   );
 };

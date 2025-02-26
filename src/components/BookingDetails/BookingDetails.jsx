@@ -30,7 +30,9 @@ const BookingDetails = (props) => {
     day = day.length > 1 ? day : "0" + day;
 
     return month + "/" + day + "/" + year;
-  }
+  };
+
+  const style1 = {textDecoration: "none", color: "black"}
 
   if (!booking) return <main>Loading...</main>;
   return (
@@ -52,11 +54,15 @@ const BookingDetails = (props) => {
             {" "}
             {booking.rental.typeOfRental} located in {booking.rental.location}
           </p>
+          <hr />
+          <p>Check-in: {getFormattedDate(new Date(booking.checkIn))}</p>
+          <p>Check-out: {getFormattedDate(new Date(booking.checkOut))}</p>
+          <hr />
           {booking.message ? <p> Message for host: {booking.message}</p> : null}
         </header>
         <button>
           {" "}
-          <Link to={`/bookings/${bookingId}/edit`}>Edit Your Booking</Link>
+          <Link style={{...style1}} to={`/bookings/${bookingId}/edit`}>Edit Your Booking</Link>
         </button>
         <button onClick={() => props.handleDeleteBooking(bookingId)}>
           Delete Your Booking{" "}

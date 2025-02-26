@@ -10,7 +10,6 @@
 
 body {
   background-color: #18922B;
-
   /* Use a system font; if none are available, use an available sans-serif font */
   font-family: 'Times New Roman', Times, serif;
   /* Ensures full height compatibility across devices */
@@ -32,14 +31,15 @@ h1 {
 
 button {
   font-size: 1.25em;
-  background-color: #f8f7f7;
+  background-color: pink;
   text-decoration: none;
-  padding: 8px 5px 8px 5px;
+  padding: 5px 10px 5px 10px;
   color: black;
   font-family: 'Times New Roman', Times, serif;
-  border-radius: 5px;
-  margin: 10px 10px 10px 10px;
+  border-radius: 2cm;
+  margin: 5px 5px 5px 5px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

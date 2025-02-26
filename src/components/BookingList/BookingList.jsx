@@ -10,6 +10,7 @@ const BookingList = (props) => {
       try {
         console.log("the fetch function was called ");
         const bookingsData = await bookingService.index();
+
         console.log("bookingsData", bookingsData);
         props.setBookings(bookingsData);
       } catch (err) {
@@ -25,18 +26,20 @@ const BookingList = (props) => {
       {!props.bookings.length ? (
         <p className="msg">There are no bookings.</p>
       ) : (
-        <h1 className="msg">Here are your bookings!</h1>
+        <h1 className="msg">Your Bookings</h1>
       )}
       {props.bookings.map((booking) => (
-        <Link
-          key={booking._id}
-          to={`/bookings/${booking._id}`}
-          style={{ ...style1 }}
-        >
-          <header>
-            <h2>Booking for {booking.rental.name}</h2>
-          </header>
-        </Link>
+        <div className="booking" key={booking._id}>
+          <img className="rental-photo" src={`${booking.rental.photo}`} alt="photos of rentals properties." />
+          <Link
+            to={`/bookings/${booking._id}`}
+            style={{ ...style1 }}
+          >
+            <header>
+              <h2>Booking for {booking.rental.name}</h2>
+            </header>
+          </Link>
+        </div>
       ))}
     </main>
   );

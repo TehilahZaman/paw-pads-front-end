@@ -1,18 +1,29 @@
-main {
-  margin-left: 30px;
+
+.booking-photo {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
-.review {
+hr {
+  width: 75%;
+  border-color: rgb(248, 155, 170);
+}
+
+.booking-text p {
+  font-size: 20px;
+}
+
+/* .review {
   border: solid black;
   border-radius: 7px;
   margin-left: 9%;
   margin-right: 13%;
   padding-bottom: 5px;
-}
+} */
 
-.review-header {
+/* .review-header {
   margin-right: 83%;
-}
+} */
 /* .review button {
   padding: 7px 10px;
   border-radius: 7px;
