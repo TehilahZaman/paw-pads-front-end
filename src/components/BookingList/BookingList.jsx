@@ -24,7 +24,7 @@ const BookingList = (props) => {
   return (
     <main>
       {!props.bookings.length ? (
-        <p className="msg">There are no bookings.</p>
+        <h1 className="msg">There are no bookings.</h1>
       ) : (
         <h1 className="msg">Your Bookings</h1>
       )}
