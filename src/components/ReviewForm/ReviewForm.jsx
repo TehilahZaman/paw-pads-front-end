@@ -44,8 +44,9 @@ export default function ReviewForm(props) {
 
   return (
     <section>
-      <h2>{reviewId ? "Update your Review!" : "Leave a review!"}</h2>
+     
       <form onSubmit={handleSubmit} className="review-form">
+        <label> {reviewId ? "Update your Review!" : "Leave a review!"}</label>
         {/* <label htmlFor="name">Name</label>
         <input
           type="text"

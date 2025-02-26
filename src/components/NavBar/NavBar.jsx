@@ -25,22 +25,26 @@ const NavBar = () => {
     <nav>
       {user ? (
         <ul className="nav">
-          <li>Welcome, {user.username}</li>
-
           <li>
-            <Link to="/">Dashboard</Link>
+            <Link className="nav-link" to="/">
+              Dashboard
+            </Link>
           </li>
           <li>
-            <Link to="/rentals">Rental List</Link>
+            <Link className="nav-link" to="/rentals">
+              Rental List
+            </Link>
           </li>
           {/* <li>
             <Link to="/bookings/new">Book a Pad</Link>
           </li> */}
           <li>
-            <Link to="/bookings">Your Bookings</Link>
+            <Link className="nav-link" to="/bookings">
+              Your Bookings
+            </Link>
           </li>
           <li>
-            <Link to="/" onClick={handleSignOut}>
+            <Link className="nav-link" to="/" onClick={handleSignOut}>
               Sign Out
             </Link>
           </li>
@@ -48,13 +52,19 @@ const NavBar = () => {
       ) : (
         <ul className="nav">
           <li>
-            <Link to="/">Home</Link>
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/sign-in">Sign In</Link>
+            <Link className="nav-link" to="/sign-in">
+              Sign In
+            </Link>
           </li>
           <li>
-            <Link to="/sign-up">Sign Up</Link>
+            <Link className="nav-link" to="/sign-up">
+              Sign U p
+            </Link>
           </li>
         </ul>
       )}
