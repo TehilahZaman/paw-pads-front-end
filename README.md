@@ -10,19 +10,19 @@
 
 #### Leah Irwin - Programmer, Deployment Manager
 
-[![Linkedin Badge](https://img.shields.io/badge/-@tehilahzaman-blue?style=flat&logo=Linkedin&logoColor=black)](www.linkedin.com/in/leah-irwin-280722205)
+[![Linkedin Badge](https://img.shields.io/badge/-@leahirwin-blue?style=flat&logo=Linkedin&logoColor=black)](www.linkedin.com/in/leah-irwin-280722205)
 
 #### Zak Sandler - Programmer, GitHub Manager
 
-[![Linkedin Badge](https://img.shields.io/badge/-@tehilahzaman-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/zaksandler)
+[![Linkedin Badge](https://img.shields.io/badge/-@zaksandler-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/zaksandler)
 
 #### Tehilah Zamanzadeh - Programmer, Project Manager
 
 [![Linkedin Badge](https://img.shields.io/badge/-@tehilahzaman-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/tehilah-zaman/)
 
-## Decription
+## Description
 
-Paw Pads is a property rental service that allows users to book stays at pet friendly places for vacations, parties, and more! Paw Pads offers a variety of rental types, and users can book stays, send personal messages or requests for their hosts, and review places they've stayed before! All pets welcome!
+Paw Pads is a property rental service that allows users to book stays at pet-friendly places for vacations, parties, and more! Paw Pads offers a variety of rental types, and users can book stays, send personal messages or requests for their hosts, and review places they've stayed at before! All pets welcome!
 
 </div>
 
@@ -52,16 +52,16 @@ Paw Pads is a property rental service that allows users to book stays at pet fri
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 ![React](https://img.shields.io/badge/React-05122A?style=flat&logo=visualstudio)
 
-## Using BookstaCart
+## Using Paw Pads
 
   <details >
-  <summary> How Book A Rental </summary>
-    Navigate to the rentals page wherto browse a range of rental properties. Click a property to be directed to the information page of that rental. Click 'Book Your Stay' to make a reservation; input your check-in and hceck-out dates, and leave an optional message for your host. Once made you will be taken to your bookings page where you can click on, edit or delete a booking. 
+  <summary> How To Book A Rental </summary>
+    Navigate to the rentals page to browse a range of rental properties. Click a property to be directed to the information page of that property. Click 'Book Your Stay' to make a reservation; input your check-in and check-out dates, and leave an optional message for your host. Once made, you will be taken to your bookings page where you can click on, edit, or delete a booking. 
 </details>
 
 <details>
-  <summary> How to Purchase a Book</summary>
-  On the information page of a rental property, you can view other user's review and leave a review your self. Just type in your review and click submit. 
+  <summary> How to Leave a Review</summary>
+  On the information page of a rental property, you can view other users' reviews and leave your own review. Just type in your review and click submit. 
 </details>
 
 <details open>
@@ -79,4 +79,4 @@ Paw Pads is a property rental service that allows users to book stays at pet fri
 
 ## Upcoming Features
 
-- [ ] Users can login as renters and create rentalable properties
+- [ ] Users can login as renters and create rental properties.
