@@ -16,5 +16,3 @@ createRoot(document.getElementById('root')).render(
     </BrowserRouter>
   </StrictMode>,
 )
-
-// this is tehilah's comment mwahahaha

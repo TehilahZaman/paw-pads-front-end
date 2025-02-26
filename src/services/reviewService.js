@@ -1,6 +1,6 @@
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/rentals`;
 
-// create
+
 const createReview = async (rentalId, reviewFormData) => {
   try {
     const res = await fetch(`${BASE_URL}/${rentalId}/reviews`, {
@@ -25,7 +25,6 @@ const createReview = async (rentalId, reviewFormData) => {
   }
 };
 
-// show route
 const showReview = async (rentalId, reviewId) => {
   try {
     const res = await fetch(`${BASE_URL}/${rentalId}/reviews/${reviewId}`, {
@@ -47,7 +46,6 @@ const showReview = async (rentalId, reviewId) => {
   }
 };
 
-// update route ...
 const updateReview = async (rentalId, reviewId, reviewFormData) => {
   try {
     const res = await fetch(
@@ -75,7 +73,6 @@ const updateReview = async (rentalId, reviewId, reviewFormData) => {
   }
 };
 
-// delete route
 const deleteReview = async (rentalId, reviewId) => {
   try {
     const res = await fetch(`${BASE_URL}/${rentalId}/reviews/${reviewId}`, {

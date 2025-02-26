@@ -1,4 +1,4 @@
-// src/components/Dashboard/Dashboard.jsx
+
 import "./Dashboard.css";
 
 import { useEffect, useContext } from "react";
@@ -20,8 +20,7 @@ const Dashboard = () => {
       }
     };
     if (user) fetchUsers();
-  }, [user.username]); // this useEffect is running when component loads, or when the value
-  // of user changes
+  }, [user.username]);
 
   return (
     <main>
