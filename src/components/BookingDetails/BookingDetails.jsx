@@ -44,6 +44,7 @@ const BookingDetails = (props) => {
             alt="photos of rentals"
             height="300"
             width="300"
+            className="booking-photo"
           />
           <h1>Rental for {booking.rental.name} </h1>
           <p>Check-in: {getFormattedDate(new Date(booking.checkIn))}</p>
