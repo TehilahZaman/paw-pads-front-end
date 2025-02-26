@@ -54,6 +54,7 @@ const RentalDetails = (props) => {
   };
   const style1 = {textDecoration: "none", color: "black"}
 
+  const style1 = { textDecoration: "none", color: "black" };
   if (!rental) return;
   return (
     <main>
@@ -83,36 +84,43 @@ const RentalDetails = (props) => {
       <section className="review-section">
         <h2>Reviews:</h2>
 
-        {!rental.reviews.length && <p>There are no reviews.</p>}
-        {rental.reviews.map((review) => (
-          <article key={review._id} className="review">
-            <p className="review-header">{review.userName} posted</p>
-            <p>{review.text}</p>
+        <section className="rev-sec">
+          {!rental.reviews.length && <p>There are no reviews.</p>}
+          <section className="review-list">
+            {rental.reviews.map((review) => (
+              <article key={review._id} className="review">
+                <p className="review-username">{review.userName} posted</p>
+                <p className="review-text">{review.text}</p>
 
-            {user._id === review.author ? (
-              <div className="button-div">
-                <button className="edit-button">
-                  <Link style={{...style1}}
-                    to={`/rentals/${rental._id}/reviews/${review._id}/edit`}
-                  >
-                    {" "}
-                    Edit{" "}
-                  </Link>
-                </button>
-                <button
-                  className="delete-button"
-                  onClick={() => handleDelete(review._id)}
-                >
-                  Delete
-                </button>
-              </div>
-            ) : null}
+                {user._id === review.author ? (
+                  <div className="button-div">
+                    <button className="edit-button">
+                      <Link
+                        style={{ ...style1 }}
+                        to={`/rentals/${rental._id}/reviews/${review._id}/edit`}
+                      >
+                        {" "}
+                        Edit{" "}
+                      </Link>
+                    </button>
+                    <button
+                      className="delete-button"
+                      onClick={() => handleDelete(review._id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                ) : null}
+              </article>
+            ))}
+          </section>
+          <article>
+            <ReviewForm
+              handleAddReview={handleAddReview}
+              handleUpdate={handleUpdate}
+            />
           </article>
-        ))}
-        <ReviewForm
-          handleAddReview={handleAddReview}
-          handleUpdate={handleUpdate}
-        />
+        </section>
       </section>
     </main>
   );

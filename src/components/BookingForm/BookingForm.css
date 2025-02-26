@@ -10,6 +10,8 @@
   padding: 50px;
   margin-left: 30%;
   margin-right: 30%;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .form div {
@@ -17,7 +19,7 @@
 }
 
 /* .form button { */
-  /* padding: 5px;
+/* padding: 5px;
   border-radius: 0.5cm; */
-  /* cursor: pointer;
+/* cursor: pointer;
 } */

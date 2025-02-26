@@ -38,9 +38,16 @@ const BookingDetails = (props) => {
   return (
     <main>
       <section>
-        <header className="booking-text">
-          <h1>Booking for {booking.rental.name} </h1>
-          <img className="booking-photo" src={`${booking.rental.photo}`} alt="photos of rentals" height="300" width="300" />
+        <header>
+          <img
+            src={`${booking.rental.photo}`}
+            alt="photos of rentals"
+            height="300"
+            width="300"
+          />
+          <h1>Rental for {booking.rental.name} </h1>
+          <p>Check-in: {getFormattedDate(new Date(booking.checkIn))}</p>
+          <p>Check-out: {getFormattedDate(new Date(booking.checkOut))}</p>
           <p>Rental Informtion: </p>
           <p>Host {booking.rental.padOwner}</p>
           <p>
