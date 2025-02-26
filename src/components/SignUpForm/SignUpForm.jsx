@@ -42,6 +42,7 @@ const SignUpForm = () => {
             // updating the UserContext user state!
             setUser(newUser)
             console.log(newUser, " <- new User (decoded jwt token)")
+            navigate("/")
         } catch (err) {
             console.log(err)
             // update the state to whatever the error message is 

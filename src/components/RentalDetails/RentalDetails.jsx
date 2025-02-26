@@ -52,6 +52,7 @@ const RentalDetails = (props) => {
       ),
     });
   };
+  const style1 = {textDecoration: "none", color: "black"}
 
   if (!rental) return;
   return (
@@ -89,9 +90,9 @@ const RentalDetails = (props) => {
             <p>{review.text}</p>
 
             {user._id === review.author ? (
-              <div>
+              <div className="button-div">
                 <button className="edit-button">
-                  <Link
+                  <Link style={{...style1}}
                     to={`/rentals/${rental._id}/reviews/${review._id}/edit`}
                   >
                     {" "}

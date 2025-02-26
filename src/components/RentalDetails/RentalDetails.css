@@ -7,8 +7,12 @@ img {
 }
 
 .rental-section button {
-  margin-left: 45%;
+  margin-left: 43%;
 }
 
+.button-div {
+  display: flex;
+  margin-left: 80%;
+}
 /* .review-section article {
 } */

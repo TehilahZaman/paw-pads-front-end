@@ -30,28 +30,32 @@ const BookingDetails = (props) => {
     day = day.length > 1 ? day : "0" + day;
 
     return month + "/" + day + "/" + year;
-  }
+  };
+
+  const style1 = {textDecoration: "none", color: "black"}
 
   if (!booking) return <main>Loading...</main>;
   return (
     <main>
       <section>
-        <header>
-          <img src={`${booking.rental.photo}`} alt="photos of rentals" height="300" width="300" />
-          <h1>Rental for {booking.rental.name} </h1>
-          <p>Check-in: {getFormattedDate(new Date(booking.checkIn))}</p>
-          <p>Check-out: {getFormattedDate(new Date(booking.checkOut))}</p>
+        <header className="booking-text">
+          <h1>Booking for {booking.rental.name} </h1>
+          <img className="booking-photo" src={`${booking.rental.photo}`} alt="photos of rentals" height="300" width="300" />
           <p>Rental Informtion: </p>
           <p>Host {booking.rental.padOwner}</p>
           <p>
             {" "}
             {booking.rental.typeOfRental} located in {booking.rental.location}
           </p>
+          <hr />
+          <p>Check-in: {getFormattedDate(new Date(booking.checkIn))}</p>
+          <p>Check-out: {getFormattedDate(new Date(booking.checkOut))}</p>
+          <hr />
           {booking.message ? <p> Message for host: {booking.message}</p> : null}
         </header>
         <button>
           {" "}
-          <Link to={`/bookings/${bookingId}/edit`}>Edit Your Booking</Link>
+          <Link style={{...style1}} to={`/bookings/${bookingId}/edit`}>Edit Your Booking</Link>
         </button>
         <button onClick={() => props.handleDeleteBooking(bookingId)}>
           Delete Your Booking{" "}

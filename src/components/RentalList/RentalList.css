@@ -5,6 +5,7 @@ we could just make the background white  */
   text-decoration: underline;
   text-align: left;
   margin-left: 100px;
+ }
 
 .rental {
   display: flex;
@@ -27,7 +28,6 @@ we could just make the background white  */
   width: 215px;
   height:180px;
   margin-left: 0px;
-  margin-top: 20px;
 }
 
 /* .rental-list {
