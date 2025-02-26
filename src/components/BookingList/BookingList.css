@@ -1,6 +1,17 @@
 .msg {
   text-align: center;
 }
-Link {
-  color: black;
+
+.booking {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.booking img {
+  width: 150px;
+  height: 150px;
 }
