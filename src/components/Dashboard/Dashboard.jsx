@@ -23,9 +23,9 @@ const Dashboard = () => {
   }, [user.username]);
 
   return (
-    <main>
+    <main className="dashboard">
       <h1>Welcome to Paw Pads, {user.username}</h1>
-      <h2 className="dashboard-h2">Find a purr-fect rental for you and your pet today!</h2>
+      <h2>Find a purr-fect rental for you and your pet today!</h2>
     </main>
   );
 };
