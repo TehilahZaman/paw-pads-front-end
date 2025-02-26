@@ -1,7 +1,5 @@
-// src/components/Dashboard/Dashboard.jsx
-import "./Dashboard.css";
 
-// Leah is working here =====
+import "./Dashboard.css";
 
 import { useEffect, useContext } from "react";
 
@@ -22,11 +20,10 @@ const Dashboard = () => {
       }
     };
     if (user) fetchUsers();
-  }, [user.username]); // this useEffect is running when component loads, or when the value
-  // of user changes
+  }, [user.username]);
 
   return (
-    <main>
+    <main className="dashboard">
       <h1>Welcome to Paw Pads, {user.username}</h1>
       <h2>Find a purr-fect rental for you and your pet today!</h2>
     </main>

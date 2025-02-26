@@ -1,10 +1,10 @@
-// src/components/Landing.jsx
+
 import "./Landing.css";
 
 const Landing = () => {
   return (
-    <main>
-      <h1>Welcome to Paw Pads visitor page!</h1>
+    <main className="landing">
+      <h1>Welcome to Paw Pads!</h1>
       <h2>Sign up now, or sign to rent a purr-fect place for you and your pet!</h2>
     </main>
   );

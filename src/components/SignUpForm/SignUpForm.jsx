@@ -1,20 +1,14 @@
-// SignUpForm.jsx
+
 import "./SignUpForm.css"
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
 
-// The context is how you can access the global
-// state 
 import { UserContext } from '../../contexts/UserContext';
 
 import { signUp } from '../../services/authService';
 
 const SignUpForm = () => {
-    // navigate is a function that takes in a path 
-    // we defined on one of our routes
 
-    // consume the context! 
-    // here we can destructure setUser, or user state
     const {setUser} = useContext(UserContext)
 
     const navigate = useNavigate();
@@ -37,20 +31,17 @@ const SignUpForm = () => {
         evt.preventDefault();
 
         try {
-            // signUp is from our authService
             const newUser = await signUp(formData)
-            // updating the UserContext user state!
+
             setUser(newUser)
             console.log(newUser, " <- new User (decoded jwt token)")
             navigate("/")
         } catch (err) {
             console.log(err)
-            // update the state to whatever the error message is 
-            // to display to the user
             setMessage(err.message)
         }
 
-        console.log(formData); // this line will print the form data to the console
+        console.log(formData);
     };
 
     const isFormInvalid = () => {

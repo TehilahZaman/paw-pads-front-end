@@ -6,7 +6,7 @@
 
 # Paw Pads
 
-### The Team
+### The Team!
 
 #### Leah Irwin - Programmer, Deployment Manager
 

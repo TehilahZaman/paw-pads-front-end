@@ -70,7 +70,7 @@ const RentalDetails = (props) => {
         <p>
           A wonderful {rental.typeOfRental} located in {rental.location}
         </p>
-        {/* <p>{rental.typeOfRental}</p> */}
+
         <p>Rental owner {rental.padOwner}</p>
         <button onClick={() => setShowForm(true)}>Book Your Stay Here!</button>
         {showForm && (
