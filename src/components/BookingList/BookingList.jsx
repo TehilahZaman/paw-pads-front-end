@@ -26,7 +26,7 @@ const BookingList = (props) => {
       {!props.bookings.length ? (
         <p className="msg">There are no bookings.</p>
       ) : (
-        <h1 className="msg">Here are your bookings!</h1>
+        <h1 className="msg">Your Bookings</h1>
       )}
       {props.bookings.map((booking) => (
         <div className="booking" key={booking._id}>
