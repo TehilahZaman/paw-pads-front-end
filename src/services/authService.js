@@ -1,9 +1,5 @@
-// src/services/authService.js
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/auth`;
-
-// When do we want to call this function? When we submit the signup form
-// where do we want to call this function? Call it in the Signup!
 
 const signUp = async (formData) => {
   try {
@@ -20,9 +16,9 @@ const signUp = async (formData) => {
     }
 
     if (data.token) {
-      // set the token in local storage
+
       localStorage.setItem("token", data.token);
-      // decoding the token and returning it from the function!
+
       return JSON.parse(atob(data.token.split(".")[1])).payload;
     }
 
@@ -33,8 +29,6 @@ const signUp = async (formData) => {
   }
 };
 
-// src/services/authService.js
-// formData is coming from signIn page
 const signIn = async (formData) => {
   try {
     const res = await fetch(`${BASE_URL}/sign-in`, {

@@ -1,4 +1,4 @@
-// src/App.jsx
+
 import "./App.css";
 
 import { useContext, useState, useEffect } from "react";
@@ -106,16 +106,6 @@ const App = () => {
         />
       </Routes>
 
-      {/* DONT" NEED THIS IF WE are attching bookings to rentals only  */}
-      {/* <Route
-          path="/bookings/new"
-          element={
-            <BookingForm
-              handleAddBooking={handleAddBooking}
-              handleUpdateBooking={handleUpdateBooking}
-            />
-          }
-        /> */}
     </>
   );
 };

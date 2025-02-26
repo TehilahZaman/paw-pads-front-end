@@ -1,4 +1,4 @@
-// practice making a form in react
+
 import "./BookingForm.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
@@ -10,7 +10,6 @@ const formattedDate = date.toLocaleDateString("en-US");
 console.log(formattedDate);
 
 const initialState = {
-  //   name: "",
   checkIn: formattedDate,
   checkOut: formattedDate,
   message: "",
@@ -62,16 +61,6 @@ const BookingForm = (props) => {
     <section>
       <h1>{bookingId ? "Edit Booking" : "New Booking"}</h1>
       <form onSubmit={handleSubmit} className="form">
-        {/* <div>
-        <label htmlFor="name">Name:</label>
-        <input
-        type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </div> */}
         <div>
           <label htmlFor="checkIn">Check-in:</label>
           <input
