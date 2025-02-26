@@ -8,25 +8,26 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 <div id="banner" align="center" >
-<img src="----img here " width="400" height="400">
+<img src="IMAGE HERE" width="400" height="400">
 </div>
 
 <div id="description" align="center">
 
-# Bookstacart
+# Paw Pads
 
 ### The Team
 
 #### Leah Irwin - Programmer, Deployment Manager
 
+[![Linkedin Badge](https://img.shields.io/badge/-@tehilahzaman-blue?style=flat&logo=Linkedin&logoColor=black)](www.linkedin.com/in/leah-irwin-280722205)
+
 #### Zak Sandler - Programmer, GitHub Manager
+
+[![Linkedin Badge](https://img.shields.io/badge/-@tehilahzaman-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/zaksandler)
 
 #### Tehilah Zamanzadeh - Programmer, Project Manager
 
 [![Linkedin Badge](https://img.shields.io/badge/-@tehilahzaman-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/tehilah-zaman/)
-
-[![Linkedin Badge](https://img.shields.io/badge/-@tehilahzaman-blue?style=flat&logo=Linkedin&logoColor=black)](inkedin link here )
-[![Linkedin Badge](https://img.shields.io/badge/-@tehilahzaman-blue?style=flat&logo=Linkedin&logoColor=black)](linkedin link here )
 
 ## Decription
 
@@ -36,14 +37,13 @@ Paw Pads is a property rental service that allows users to book stays at pet fri
 
 ## Screenshots
 
-|    Description    | Screenshot                                                               |
-| :---------------: | ------------------------------------------------------------------------ |
-|    **Sign up**    | <img src="images/sign-in" width="700"/>                                  |
-|   **Dashboard**   | <img src="images/" width="700"/>                                         |
-|    **Rentals**    | <img src="images/rental-list" width="700"/>                              |
-|  **Rental Page**  | <img src="images/rental-details" width="700"/>                           |
-| **Your Bookings** | <img src="images/booking-list" width="700"/>                             |
-|   **A Booking**   | <img src="images/booking" width="700"/> <img src="images/" width="700"/> |
+|    Description    | Screenshot                                         |
+| :---------------: | -------------------------------------------------- |
+|    **Sign up**    | <img src="images/sign-in.png" width="700"/>        |
+|    **Rentals**    | <img src="images/rental-list.png" width="700"/>    |
+|  **Rental Page**  | <img src="images/rental-details.png" width="700"/> |
+| **Your Bookings** | <img src="images/booking-list.png" width="700"/>   |
+|    **Booking**    | <img src="images/booking.png" width="700"/>        |
 
 ## Technologies Used
 
