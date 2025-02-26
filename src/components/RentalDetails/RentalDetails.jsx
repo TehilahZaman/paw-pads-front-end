@@ -52,7 +52,6 @@ const RentalDetails = (props) => {
       ),
     });
   };
-  const style1 = {textDecoration: "none", color: "black"}
 
   const style1 = { textDecoration: "none", color: "black" };
   if (!rental) return;
