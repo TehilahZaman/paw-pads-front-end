@@ -1,5 +1,13 @@
 .nav {
   display: flex;
+  justify-content: center;
+  background: pink;
+  margin-top: 0px;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .nav li {
@@ -7,7 +15,7 @@
   padding: 5px;
 }
 
-/*  not working */
-.nav Link {
-  text-decoration: none;
+.nav-link {
+  color: inherit;
+  text-decoration: inherit;
 }

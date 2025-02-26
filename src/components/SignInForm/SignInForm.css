@@ -1,7 +1,8 @@
 /* h1 {
   text-align: center;
 } */
-.form {
+ 
+.sign-form {
   background-color: white;
   color: black;
   display: flex;
@@ -9,13 +10,13 @@
   align-items: center;
   border: solid black;
   border-radius: 2cm;
-  padding: 50px;
+  padding: 100px 50px;
   margin-left: 30%;
   margin-right: 30%;
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.form div {
+.sign-form div {
   padding: 5px;
 }
 
